@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://akashtourism.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-    <url><loc>https://akashtourism.com/services</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://akashtourism.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://akashtourism.com/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-    <url><loc>https://akashtourism.com/contact</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://akashtourism.com/blog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://akashtourism.com/blog/delhi-food-trail</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://akashtourism.com/blog/agra-beyond-taj</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://akashtourism.com/blog/kashmir-slow-travel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://akashtourism.com/blog/himachal-cafe-trail</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://akashtourism.com/blog/nirmal-purja-nimsdai</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://akashtourism.com/delhi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://akashtourism.com/agra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://akashtourism.com/jammu-kashmir</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://akashtourism.com/himachal-pradesh</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://akashjourney.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+    <url><loc>https://akashjourney.com/services</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://akashjourney.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://akashjourney.com/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+    <url><loc>https://akashjourney.com/contact</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://akashjourney.com/blog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://akashjourney.com/blog/delhi-food-trail</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://akashjourney.com/blog/agra-beyond-taj</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://akashjourney.com/blog/kashmir-slow-travel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://akashjourney.com/blog/himachal-cafe-trail</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://akashjourney.com/blog/nirmal-purja-nimsdai</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://akashjourney.com/delhi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://akashjourney.com/agra</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://akashjourney.com/jammu-kashmir</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://akashjourney.com/himachal-pradesh</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
