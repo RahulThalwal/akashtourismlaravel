@@ -24,7 +24,7 @@
 <body>
     <div class="site-shell">
         <header class="site-header">
-            <a class="brand" href="#top" aria-label="Akash Tourism home">
+            <a class="brand" href="{{ url('/') }} aria-label="Akash Tourism home">
                 <img src="{{ asset('images/icon.png') }}" alt="Akash Tourism" class="brand-mark">
                 <span>Akash Tourism</span>
             </a>
