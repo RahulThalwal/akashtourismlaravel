@@ -8,6 +8,7 @@ Route::view('/services', 'services')->name('services');
 Route::view('/about', 'about')->name('about');
 Route::view('/privacy', 'privacy')->name('privacy');
 Route::view('/contact', 'contact')->name('contact');
+Route::view('/rajasthan', 'destinations.rajasthan')->name('destinations.rajasthan');
 Route::post('/contact', function (Request $request) {
     $data = $request->validate([
         'name' => ['required', 'string', 'max:100'],

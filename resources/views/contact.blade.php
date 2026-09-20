@@ -21,44 +21,7 @@
 
 <body class="contact-page">
     <div class="site-shell">
-
-        <header class="site-header">
-            <a class="brand" href="#top" aria-label="Akash Tourism home">
-                <img src="{{ asset('images/icon.png') }}" alt="Akash Tourism" class="brand-mark">
-                <span>Akash Tourism</span>
-            </a>
-            <nav class="desktop-nav" aria-label="Primary navigation">
-                <a href="{{ url('/#destinations') }}">Explore</a>
-                <a href="{{ route('services') }}">Services</a>
-                <a href="{{ route('blog.index') }}">Blog</a>
-                <a href="{{ route('about') }}">About us</a>
-                <a href="{{ route('privacy') }}">Privacy</a>
-                <a class="active" href="{{ route('contact') }}">Contact</a>
-            </nav>
-            <div class="header-actions">
-                <button class="icon-button" type="button" aria-label="Search" data-search-trigger>
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="11" cy="11" r="6.5"></circle>
-                        <path d="m16 16 5 5"></path>
-                    </svg>
-                </button>
-                <a class="saved-link" href="{{ url('/#saved') }}">Saved <span>0</span></a>
-                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"
-                    aria-label="Toggle menu">
-                    <span></span><span></span>
-                </button>
-            </div>
-        </header>
-
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-            <a href="{{ url('/#destinations') }}">Explore</a>
-            <a href="{{ route('services') }}">Services</a>
-            <a href="{{ route('blog.index') }}">Blog</a>
-            <a href="{{ route('about') }}">About us</a>
-            <a href="{{ route('privacy') }}">Privacy</a>
-            <a class="active" href="{{ route('contact') }}">Contact</a>
-        </nav>
-
+           @include('partials.navbar')
         <main>
             <section class="contact-hero">
                 <div>
@@ -108,31 +71,7 @@
                     a route.</p>
             </section>
         </main>
-
-        <footer class="site-footer">
-            <div class="footer-brand">
-                <div class="brand"><span class="brand-mark">A</span><span>Akash Tourism</span></div>
-                <p>Made for the curious.</p>
-            </div>
-            <div class="footer-links">
-                <div>
-                    <strong>Site</strong>
-                    <a href="{{ route('about') }}">About us</a>
-                    <a href="{{ route('services') }}">Services</a>
-                    <a href="{{ route('blog.index') }}">Blog</a>
-                    <a href="{{ route('privacy') }}">Privacy policy</a>
-                    <a href="{{ route('contact') }}">Contact</a>
-                </div>
-                <div>
-                    <strong>Destinations</strong>
-                    <a href="{{ route('destinations.show', 'delhi') }}">Delhi</a>
-                    <a href="{{ route('destinations.show', 'agra') }}">Agra</a>
-                    <a href="{{ route('destinations.show', 'jammu-kashmir') }}">Jammu & Kashmir</a>
-                    <a href="{{ route('destinations.show', 'himachal-pradesh') }}">Himachal Pradesh</a>
-                </div>
-            </div>
-            <span>&copy; 2024 Akash Tourism India</span>
-        </footer>
+        @include('partials.footer')
     </div>
 
     <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search destinations" hidden>
