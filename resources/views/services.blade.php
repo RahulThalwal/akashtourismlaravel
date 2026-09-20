@@ -23,27 +23,7 @@
 
 <body class="services-page">
     <div class="site-shell">
-        <header class="site-header">
-            <a class="brand" href="#top" aria-label="Akash Tourism home">
-                <img src="{{ asset('images/icon.png') }}" alt="Akash Tourism" class="brand-mark">
-                <span>Akash Tourism</span>
-            </a>
-            <nav class="desktop-nav" aria-label="Primary navigation"><a href="{{ url('/#destinations') }}">Explore</a><a
-                    class="active" href="{{ route('services') }}">Services</a><a
-                    href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a
-                    href="{{ route('privacy') }}">Privacy</a></nav>
-            <div class="header-actions"><button class="icon-button" type="button" aria-label="Search"
-                    data-search-trigger><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="11" cy="11" r="6.5"></circle>
-                        <path d="m16 16 5 5"></path>
-                    </svg></button><a class="saved-link" href="{{ url('/#saved') }}">Saved <span>0</span></a><button
-                    class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"
-                    aria-label="Toggle menu"><span></span><span></span></button></div>
-        </header>
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"><a
-                href="{{ url('/#destinations') }}">Explore</a><a class="active"
-                href="{{ route('services') }}">Services</a><a href="{{ route('blog.index') }}">Blog</a><a
-                href="{{ route('about') }}">About us</a><a href="{{ route('privacy') }}">Privacy</a></nav>
+        @include('partials.navbar')
         <main>
             <section class="services-hero">
                 <div>
@@ -164,6 +144,20 @@
                                     <i>↗</i></a></div>
                         </div>
                     </article>
+                    <article class="package-card">
+                        <div class="package-photo"><img
+                                src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=85"
+                                alt="Fort and desert landscape in Rajasthan"><span>05 / HERITAGE</span></div>
+                        <div class="package-content">
+                            <div class="package-topline">
+                                <h3>Rajasthan, royally</h3><strong>6 Days / 5 Nights</strong>
+                            </div>
+                            <p>Forts of Jaipur, blue lanes of Jodhpur, a desert camel safari in Jaisalmer, and sunset on
+                                Udaipur's lakes.</p>
+                            <div class="package-bottom"><span>From <b>₹32,500</b> / person</span><a
+                                href="{{ route('destinations.rajasthan') }}">View destination <i>↗</i></a></div>
+                        </div>
+                    </article>
                 </div>
             </section>
             <section class="service-process">
@@ -191,21 +185,7 @@
                 </div><a class="primary-button" href="mailto:hello@wanderly.in">Plan my journey <span>↗</span></a>
             </section>
         </main>
-        <footer class="site-footer" id="about">
-            <div class="footer-brand">
-                <div class="brand"><span class="brand-mark">A</span><span>Akash Tourism</span></div>
-                <p>Made for the curious.</p>
-            </div>
-            <div class="footer-links">
-                <div><strong>Site</strong><a href="{{ route('about') }}">About us</a><a
-                        href="{{ route('services') }}">Services</a><a href="{{ route('blog.index') }}">Blog</a><a
-                        href="{{ route('privacy') }}">Privacy policy</a></div>
-                <div><strong>Destinations</strong><a href="{{ route('destinations.show', 'delhi') }}">Delhi</a><a
-                        href="{{ route('destinations.show', 'agra') }}">Agra</a><a
-                        href="{{ route('destinations.show', 'jammu-kashmir') }}">Jammu & Kashmir</a><a
-                        href="{{ route('destinations.show', 'himachal-pradesh') }}">Himachal Pradesh</a></div>
-            </div><span>© 2024 Akash Tourism India</span>
-        </footer>
+        @include('partials.footer')
     </div>
     <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search destinations" hidden>
         <div class="search-panel"><button class="modal-close" type="button" aria-label="Close search">×</button>

@@ -21,24 +21,7 @@
 
 <body class="destination-page">
     <div class="site-shell">
-        <header class="site-header"><a class="brand" href="{{ url('/') }}" aria-label="Akash Tourism home"><span
-                    class="brand-mark">A</span><span>Akash Tourism</span></a>
-            <nav class="desktop-nav" aria-label="Primary navigation"><a class="active"
-                    href="{{ url('/#destinations') }}">Explore</a><a href="{{ route('services') }}">Services</a><a
-                    href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a
-                    href="{{ route('privacy') }}">Privacy</a></nav>
-            <div class="header-actions"><button class="icon-button" type="button" aria-label="Search"
-                    data-search-trigger><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="11" cy="11" r="6.5"></circle>
-                        <path d="m16 16 5 5"></path>
-                    </svg></button><a class="saved-link" href="{{ url('/#saved') }}">Saved <span>0</span></a><button
-                    class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"
-                    aria-label="Toggle menu"><span></span><span></span></button></div>
-        </header>
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"><a class="active"
-                href="{{ url('/#destinations') }}">Explore</a><a href="{{ route('services') }}">Services</a><a
-                href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a
-                href="{{ route('privacy') }}">Privacy</a></nav>
+              @include('partials.navbar')
         <main>
             <section class="destination-detail-hero">
                 <div class="destination-detail-copy"><a class="back-to-blog" href="{{ url('/#destinations') }}">← All
@@ -46,7 +29,7 @@
                     <p class="eyebrow"><span></span> {{ $destination['eyebrow'] }}</p>
                     <h1>{{ $destination['name'] }}<br><em>{{ $destination['title'] }}</em></h1>
                     <p>{{ $destination['description'] }}</p><a class="primary-button"
-                        href="mailto:hello@akashtourism.in?subject={{ urlencode($destination['name'] . ' journey') }}">Plan
+                        href="mailto:info@akashjourney.com?subject={{ urlencode($destination['name'] . ' journey') }}">Plan
                         this journey <span>↗</span></a>
                 </div>
                 <div class="destination-detail-image"><img src="{{ $destination['image'] }}"
@@ -62,6 +45,35 @@
                         class="text-link" href="{{ route('services') }}">View travel services <span>↗</span></a>
                 </div>
             </section>
+            @if(isset($destination['highlights']))
+<section class="destination-highlights">
+    <p class="eyebrow dark"><span></span> Trip highlights</p>
+    <h2>What makes it<br><em>unforgettable.</em></h2>
+    <ul>
+        @foreach($destination['highlights'] as $highlight)
+            <li>{{ $highlight }}</li>
+        @endforeach
+    </ul>
+</section>
+@endif
+
+@if(isset($destination['itinerary']))
+<section class="destination-itinerary">
+    <p class="eyebrow dark"><span></span> Suggested route</p>
+    <h2>Your days<br><em>on the ground.</em></h2>
+    <div class="itinerary-list">
+        @foreach($destination['itinerary'] as $stop)
+            <div class="itinerary-item">
+                <span class="itinerary-day">{{ $stop['day'] }}</span>
+                <div>
+                    <h3>{{ $stop['title'] }}</h3>
+                    <p>{{ $stop['description'] }}</p>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</section>
+@endif
         </main>
         <footer class="site-footer">
             <div class="footer-brand">
@@ -75,7 +87,9 @@
                 <div><strong>Destinations</strong><a href="{{ route('destinations.show', 'delhi') }}">Delhi</a><a
                         href="{{ route('destinations.show', 'agra') }}">Agra</a><a
                         href="{{ route('destinations.show', 'jammu-kashmir') }}">Jammu & Kashmir</a><a
-                        href="{{ route('destinations.show', 'himachal-pradesh') }}">Himachal Pradesh</a></div>
+                        href="{{ route('destinations.show', 'himachal-pradesh') }}">Himachal Pradesh</a><a
+                        href="{{ route('destinations.show', 'rajasthan') }}">Rajasthan</a>
+                    </div>
             </div><span>© 2024 Akash Tourism India</span>
         </footer>
     </div>

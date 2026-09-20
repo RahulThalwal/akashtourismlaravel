@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('partials.seo', ['seoTitle' => $blog['title'] . ' | Akash Tourism', 'seoDescription' => $blog['intro'], 'seoKeywords' => $blog['keywords'] ?? null, 'seoImage' => $blog['image'], 'seoType' => 'article', 'seoSchema' => ['@context' => 'https://schema.org', '@type' => 'Article', 'headline' => $blog['title'], 'description' => $blog['intro'], 'image' => [$blog['image']], 'datePublished' => '2024-09-15', 'dateModified' => '2024-09-15', 'author' => ['@type' => 'Organization', 'name' => 'Akash Tourism', 'url' => 'https://akashtourism.in'], 'publisher' => ['@type' => 'Organization', 'name' => 'Akash Tourism', 'url' => 'https://akashtourism.in']]])
+    @include('partials.seo', ['seoTitle' => $blog['title'] . ' | Akash Tourism', 'seoDescription' => $blog['intro'], 'seoKeywords' => $blog['keywords'] ?? null, 'seoImage' => $blog['image'], 'seoType' => 'article', 'seoSchema' => ['@context' => 'https://schema.org', '@type' => 'Article', 'headline' => $blog['title'], 'description' => $blog['intro'], 'image' => [$blog['image']], 'datePublished' => '2024-09-15', 'dateModified' => '2024-09-15', 'author' => ['@type' => 'Organization', 'name' => 'Akash Tourism', 'url' => 'https://akashjourney.com'], 'publisher' => ['@type' => 'Organization', 'name' => 'Akash Tourism', 'url' => 'https://akashjourney.com']]])
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="blog-page article-page">

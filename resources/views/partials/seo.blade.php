@@ -1,6 +1,6 @@
 @php
     $siteName = 'Akash Tourism';
-    $siteUrl = rtrim(env('SEO_SITE_URL', 'https://akashtourism.in'), '/');
+    $siteUrl = rtrim(env('SEO_SITE_URL', 'https://akashjourney.com'), '/');
     $seoTitle = $seoTitle ?? $siteName;
     $seoDescription = $seoDescription ?? 'Thoughtful journeys through Delhi, Agra, Jammu & Kashmir, and Himachal Pradesh.';
     $seoKeywords = $seoKeywords ?? null;

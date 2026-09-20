@@ -6,27 +6,27 @@ Akash Tourism is a travel website focused on curated journeys through Delhi, Agr
 
 ## Primary Pages
 
-- [Home](https://akashtourism.in/): Explore curated Indian destinations and travel inspiration.
-- [Services](https://akashtourism.in/services): Journey design, handpicked stays, local experiences, and seamless movement.
-- [About Us](https://akashtourism.in/about): Akash Tourism's story, values, and travel philosophy.
-- [Privacy Policy](https://akashtourism.in/privacy): Information about privacy and data handling.
-- [Contact Us](https://akashtourism.in/contact): Start a conversation about planning your next journey.
-- [Travel Blog](https://akashtourism.in/blog): Travel stories, local recommendations, and field notes.
+- [Home](https://akashjourney.com/): Explore curated Indian destinations and travel inspiration.
+- [Services](https://akashjourney.com/services): Journey design, handpicked stays, local experiences, and seamless movement.
+- [About Us](https://akashjourney.com/about): Akash Tourism's story, values, and travel philosophy.
+- [Privacy Policy](https://akashjourney.com/privacy): Information about privacy and data handling.
+- [Contact Us](https://akashjourney.com/contact): Start a conversation about planning your next journey.
+- [Travel Blog](https://akashjourney.com/blog): Travel stories, local recommendations, and field notes.
 
 ## Destinations
 
-- [Delhi](https://akashtourism.in/delhi): Food, heritage, bazaars, and the energy of India's capital.
-- [Agra](https://akashtourism.in/agra): Taj Mahal, Mughal heritage, marble craft, and Mehtab Bagh.
-- [Jammu & Kashmir](https://akashtourism.in/jammu-kashmir): Alpine landscapes, Dal Lake, houseboats, and slow mountain travel.
-- [Himachal Pradesh](https://akashtourism.in/himachal-pradesh): Pine forests, mountain cafes, homestays, and unhurried journeys.
+- [Delhi](https://akashjourney.com/delhi): Food, heritage, bazaars, and the energy of India's capital.
+- [Agra](https://akashjourney.com/agra): Taj Mahal, Mughal heritage, marble craft, and Mehtab Bagh.
+- [Jammu & Kashmir](https://akashjourney.com/jammu-kashmir): Alpine landscapes, Dal Lake, houseboats, and slow mountain travel.
+- [Himachal Pradesh](https://akashjourney.com/himachal-pradesh): Pine forests, mountain cafes, homestays, and unhurried journeys.
 
 ## Blog Articles
 
-- [A Plate-by-Plate Guide to Delhi](https://akashtourism.in/blog/delhi-food-trail)
-- [Agra Beyond the Taj Mahal](https://akashtourism.in/blog/agra-beyond-taj)
-- [The Gentle Art of Slowing Down in Kashmir](https://akashtourism.in/blog/kashmir-slow-travel)
-- [A Cafe Trail Through the Himachal Hills](https://akashtourism.in/blog/himachal-cafe-trail)
-- [Nirmal Purja: The Impossible Made Possible](https://akashtourism.in/blog/nirmal-purja-nimsdai)
+- [A Plate-by-Plate Guide to Delhi](https://akashjourney.com/blog/delhi-food-trail)
+- [Agra Beyond the Taj Mahal](https://akashjourney.com/blog/agra-beyond-taj)
+- [The Gentle Art of Slowing Down in Kashmir](https://akashjourney.com/blog/kashmir-slow-travel)
+- [A Cafe Trail Through the Himachal Hills](https://akashjourney.com/blog/himachal-cafe-trail)
+- [Nirmal Purja: The Impossible Made Possible](https://akashjourney.com/blog/nirmal-purja-nimsdai)
 
 ## Travel Packages
 
@@ -37,4 +37,4 @@ Akash Tourism is a travel website focused on curated journeys through Delhi, Agr
 
 ## Contact
 
-For journey enquiries, contact: hello@akashtourism.in
+For journey enquiries, contact: info@akashjourney.com
