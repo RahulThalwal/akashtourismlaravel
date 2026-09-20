@@ -17,7 +17,6 @@
 @endphp
 <title>{{ $seoTitle }}</title>
 <meta name="description" content="{{ $seoDescription }}">
-<meta name="csrf-token" content="{{ csrf_token() }}">
 @if ($seoKeywords)<meta name="keywords" content="{{ $seoKeywords }}">@endif
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="{{ $seoUrl }}">
