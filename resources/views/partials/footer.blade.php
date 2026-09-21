@@ -3,6 +3,8 @@
          <div class="brand"><img src="{{ asset('images/icon.png') }}" alt="Akash Tourism" class="brand-mark"><span>Akash
                  Tourism</span></div>
          <p>Made for the curious.</p>
+         <p> info@akashjourney.com</p>
+         <p> +91 94592 32875</p>
      </div>
      <div class="footer-links">
          <div><strong>Site</strong><a href="{{ route('about') }}">About us</a><a

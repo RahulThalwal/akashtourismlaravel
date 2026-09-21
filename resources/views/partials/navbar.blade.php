@@ -3,8 +3,7 @@
                 <img src="{{ asset('images/icon.png') }}" alt="Akash Tourism" class="brand-mark">
                 <span>Akash Tourism</span>
             </a>
-            <nav class="desktop-nav" aria-label="Primary navigation"><a class="active"
-                    href="#destinations">Explore</a><a href="{{ route('services') }}">Services</a><a
+            <nav class="desktop-nav" aria-label="Primary navigation"><a href="{{ route('services') }}">Services</a><a
                     href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a
                     href="{{ route('privacy') }}">Privacy</a></nav>
             <div class="header-actions">

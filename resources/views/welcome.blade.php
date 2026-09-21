@@ -114,6 +114,20 @@
                             <p class="card-detail">Pine trails, mountain cafés & slow days</p>
                         </div>
                     </article>
+                    <article class="destination-card" data-category="heritage desert">
+                        <div class="card-image"><img
+                                src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1000&q=85"
+                                alt="Desert fort in Rajasthan"><span class="card-number">05</span><button
+                                class="save-button" type="button"
+                                aria-label="Save Rajasthan destination">♡</button></div>
+                        <div class="card-body">
+                            <div>
+                                <p class="card-kicker">A kingdom of sand and stone</p>
+                                <h3>Rajasthan</h3>
+                            </div><span class="card-arrow">↗</span>
+                            <p class="card-detail">Desert forts, painted cities & royal nights</p>
+                        </div>
+                    </article>
                 </div>
             </section>
             <section class="testimonials-section" aria-labelledby="traveller-notes-title">
