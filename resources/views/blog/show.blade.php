@@ -8,12 +8,7 @@
 </head>
 <body class="blog-page article-page">
     <div class="site-shell">
-        <header class="site-header">
-            <a class="brand" href="{{ url('/') }}" aria-label="Akash Tourism home"><span class="brand-mark">A</span><span>Akash Tourism</span></a>
-            <nav class="desktop-nav" aria-label="Primary navigation"><a href="{{ url('/#destinations') }}">Explore</a><a href="{{ route('services') }}">Services</a><a class="active" href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a href="{{ route('privacy') }}">Privacy</a></nav>
-            <div class="header-actions"><button class="icon-button" type="button" aria-label="Search" data-search-trigger><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button><a class="saved-link" href="{{ url('/#saved') }}">Saved <span>0</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle menu"><span></span><span></span></button></div>
-        </header>
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"><a href="{{ url('/#destinations') }}">Explore</a><a href="{{ route('services') }}">Services</a><a class="active" href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a href="{{ route('privacy') }}">Privacy</a></nav>
+     @include('partials.navbar')
         <main>
             <article class="article">
                 <a class="back-to-blog" href="{{ route('blog.index') }}">← Back to all stories</a>
@@ -30,7 +25,7 @@
                 </div></div>
             </article>
         </main>
-        <footer class="site-footer" id="about"><div class="footer-brand"><div class="brand"><span class="brand-mark">A</span><span>Akash Tourism</span></div><p>Made for the curious.</p></div><div class="footer-links"><div><strong>Site</strong><a href="{{ route('about') }}">About us</a><a href="{{ route('services') }}">Services</a><a href="{{ route('blog.index') }}">Blog</a><a href="{{ route('privacy') }}">Privacy policy</a></div><div><strong>Destinations</strong><a href="{{ route('destinations.show', 'delhi') }}">Delhi</a><a href="{{ route('destinations.show', 'agra') }}">Agra</a><a href="{{ route('destinations.show', 'jammu-kashmir') }}">Jammu & Kashmir</a><a href="{{ route('destinations.show', 'himachal-pradesh') }}">Himachal Pradesh</a></div></div><span>© 2024 Akash Tourism India</span></footer>
+        @include('partials.footer')
     </div>
 </body>
 </html>

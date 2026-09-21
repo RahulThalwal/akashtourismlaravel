@@ -8,7 +8,7 @@ Route::view('/services', 'services')->name('services');
 Route::view('/about', 'about')->name('about');
 Route::view('/privacy', 'privacy')->name('privacy');
 Route::view('/contact', 'contact')->name('contact');
-Route::view('/rajasthan', 'destinations.rajasthan')->name('destinations.rajasthan');
+Route::view('/rajasthan-tour', 'destinations.rajasthan.rajasthan')->name('destinations.rajasthan');
 Route::post('/contact', function (Request $request) {
     $data = $request->validate([
         'name' => ['required', 'string', 'max:100'],
@@ -89,7 +89,7 @@ $blogs = [
             'Between stops, take the forest roads slowly. This is a landscape that gives more back when you stop trying to see it all at once.',
         ],
     ],
-    'nirmal-purja-nimsdai' => [
+    'who-is-nirmal-purja-nimsdai' => [
         'title' => 'Nirmal Purja: the impossible made possible',
         'category' => 'People & adventure',
         'location' => 'The Himalayas, Nepal',
