@@ -30,7 +30,6 @@
 /pnpm-debug.log*
 
 # Laravel
-/public/build
 /public/hot
 /public/storage
 /storage/pail
