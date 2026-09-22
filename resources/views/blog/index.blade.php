@@ -44,7 +44,8 @@
                                     alt="{{ $blog['title'] }}"><span>{{ $blog['category'] }}</span></div>
                             <div class="blog-card-content">
                                 <div class="blog-meta">
-                                    <span>{{ $blog['date'] }}</span><span>{{ $blog['read_time'] }}</span></div>
+                                    <span>{{ $blog['date'] }}</span><span>{{ $blog['read_time'] }}</span>
+                                </div>
                                 <h2>{{ $blog['title'] }}</h2>
                                 <p>{{ $blog['intro'] }}</p><span class="blog-read-link">Read story <i>↗</i></span>
                             </div>

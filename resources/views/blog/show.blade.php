@@ -17,10 +17,17 @@
                 <div class="article-body"><div class="article-share"><span>Share</span><a href="mailto:?subject={{ urlencode($blog['title']) }}">Email</a></div><div>
                     @if (!empty($blog['sections']))
                         @foreach ($blog['sections'] as $section)
-                            <section class="article-section"><h2>{{ $section['heading'] }}</h2>@foreach ($section['paragraphs'] as $paragraph)<p>{{ $paragraph }}</p>@endforeach</section>
+                            <section class="article-section">
+                                <h2>{{ $section['heading'] }}</h2>
+                                @foreach ($section['paragraphs'] as $paragraph)
+                                    @include('blog.block', ['block' => $paragraph])
+                                @endforeach
+                            </section>
                         @endforeach
                     @else
-                        @foreach ($blog['body'] as $paragraph)<p>{{ $paragraph }}</p>@endforeach
+                        @foreach ($blog['body'] as $item)
+                            @include('blog.block', ['block' => $item])
+                        @endforeach
                     @endif
                 </div></div>
             </article>
