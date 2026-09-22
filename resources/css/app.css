@@ -504,11 +504,32 @@ h2 em {
 }
 
 .journal-strip {
+    position: relative;
     display: grid;
     grid-template-columns: 46% 54%;
     min-height: 470px;
-    background: var(--ink);
-    color: var(--paper)
+    color: var(--paper);
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Full-bleed photo behind both columns — same technique as .why-section */
+.journal-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+/* Same gradient-overlay style as .why-overlay, so both sections share one visual language */
+.journal-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.72) 100%);
+    z-index: -1;
 }
 
 .journal-copy {
@@ -518,7 +539,12 @@ h2 em {
 .journal-copy h2 {
     font-size: clamp(47px, 5.2vw, 74px);
     margin: 25px 0 40px;
-    color: var(--paper)
+    color: var(--paper);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.journal-copy .eyebrow {
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 .text-link {
@@ -535,25 +561,119 @@ h2 em {
     font-size: 16px
 }
 
-.journal-image {
+/* --- Contact panel (right column) --- */
+.journal-contact {
     position: relative;
-    overflow: hidden
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 10% 60px 6%;
 }
 
-.journal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover
+.journal-contact .eyebrow {
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
 
-.journal-label {
-    position: absolute;
-    bottom: 22px;
-    left: 25px;
-    color: #fff;
+.journal-contact h3 {
+    font-size: clamp(28px, 2.6vw, 38px);
+    line-height: 1.15;
+    margin: 18px 0 34px;
+    color: var(--paper);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 420px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row label {
     font: 10px 'DM Mono', monospace;
     text-transform: uppercase;
-    letter-spacing: .1em
+    letter-spacing: .1em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.form-row input,
+.form-row textarea {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    padding: 12px 14px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    resize: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: var(--yellow);
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.form-submit {
+    align-self: flex-start;
+    margin-top: 6px;
+    background: var(--yellow);
+    color: var(--ink);
+    border: none;
+    border-radius: 30px;
+    padding: 13px 26px;
+    font: 11px 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-submit span {
+    font-size: 15px;
+}
+
+.form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .journal-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .journal-copy {
+        padding: 60px 8% 30px;
+    }
+
+    .journal-contact {
+        padding: 20px 8% 60px;
+    }
+
+    .journal-bg {
+        background-attachment: scroll;
+        /* fixed backgrounds jank on mobile Safari — same fix as .why-section */
+    }
 }
 
 .site-footer {
@@ -948,6 +1068,130 @@ h1 {
     text-transform: uppercase;
     letter-spacing: .07em;
     white-space: nowrap
+}
+
+.why-section {
+    position: relative;
+    padding: 7rem 5vw;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Dark gradient overlay so white text stays legible over any photo */
+.why-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.72) 100%);
+    z-index: -1;
+}
+
+.why-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    color: #fff;
+}
+
+.why-section .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.why-section .eyebrow {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.why-section h2 {
+    color: #fff;
+}
+
+.why-section .section-note {
+    max-width: 360px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Frosted glass cards so photo shows through slightly */
+.why-card {
+    position: relative;
+    padding: 2.25rem 1.75rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.why-number {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.why-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+}
+
+.why-card p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .why-section {
+        padding: 4.5rem 6vw;
+        background-attachment: scroll;
+        /* fixed backgrounds can jank on mobile Safari */
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-section .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 @media(max-width:900px) {

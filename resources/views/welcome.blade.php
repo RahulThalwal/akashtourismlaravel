@@ -118,8 +118,8 @@
                         <div class="card-image"><img
                                 src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1000&q=85"
                                 alt="Desert fort in Rajasthan"><span class="card-number">05</span><button
-                                class="save-button" type="button"
-                                aria-label="Save Rajasthan destination">♡</button></div>
+                                class="save-button" type="button" aria-label="Save Rajasthan destination">♡</button>
+                        </div>
                         <div class="card-body">
                             <div>
                                 <p class="card-kicker">A kingdom of sand and stone</p>
@@ -128,6 +128,46 @@
                             <p class="card-detail">Desert forts, painted cities & royal nights</p>
                         </div>
                     </article>
+                </div>
+            </section>
+            <section class="why-section" id="why-choose-us"
+                style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=85');">
+                <div class="why-overlay"></div>
+                <div class="why-content">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow"><span></span> Why travel with us</p>
+                            <h2>Journeys built<br><em>around you.</em></h2>
+                        </div>
+                        <p class="section-note">No cookie-cutter packages. Just honest planning, local know-how, and
+                            support that doesn't disappear once you've booked.</p>
+                    </div>
+                    <div class="why-grid">
+                        <article class="why-card">
+                            <span class="why-number">01</span>
+                            <h3>Local, not generic</h3>
+                            <p>Every route is shaped by people who've actually walked it — not a template swapped
+                                between cities.</p>
+                        </article>
+                        <article class="why-card">
+                            <span class="why-number">02</span>
+                            <h3>Real-time support</h3>
+                            <p>A trip changes shape once you're on the road. We're reachable throughout, not just
+                                before you pay.</p>
+                        </article>
+                        <article class="why-card">
+                            <span class="why-number">03</span>
+                            <h3>Handpicked stays</h3>
+                            <p>Every property we recommend has been vetted for comfort, character, and genuine
+                                hospitality.</p>
+                        </article>
+                        <article class="why-card">
+                            <span class="why-number">04</span>
+                            <h3>No hidden costs</h3>
+                            <p>What you're quoted is what you pay. Transparent pricing from the first itinerary draft
+                                onward.</p>
+                        </article>
+                    </div>
                 </div>
             </section>
             <section class="testimonials-section" aria-labelledby="traveller-notes-title">
@@ -166,19 +206,39 @@
             </section>
             @include('partials.latest-blogs', ['blogs' => $latestBlogs])
             <section class="journal-strip" id="journal">
-                <div class="journal-copy">
-                    <p class="eyebrow"><span></span> From the journal</p>
-                    <h2>Leave room<br>for the <em>unexpected.</em></h2><a class="text-link" href="#journal">Read the
-                        field notes <span>↗</span></a>
-                </div>
-                <div class="journal-image"><img
-                        src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=85"
-                        alt="Colourful street in Jaipur">
-                    <div class="journal-label">Field note / 08</div>
-                </div>
-            </section>
+    <div class="journal-bg"
+        style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=85');">
+    </div>
+    <div class="journal-overlay"></div>
+
+    <div class="journal-copy">
+        <p class="eyebrow"><span></span> From the journal</p>
+        <h2>Leave room<br>for the <em>unexpected.</em></h2>
+        <a class="text-link" href="#journal">Read the field notes <span>↗</span></a>
+    </div>
+
+    <div class="journal-contact">
+        <h3>Plan Your Next Trip.</h3>
+        <form class="contact-form" method="POST" action="{{ route('contact.submit') ?? '#' }}">
+            @csrf
+            <div class="form-row">
+                <label for="jc-name">Name</label>
+                <input id="jc-name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="form-row">
+                <label for="jc-email">Email</label>
+                <input id="jc-email" name="email" type="email" placeholder="you@email.com" required>
+            </div>
+            <div class="form-row">
+                <label for="jc-message">Message</label>
+                <textarea id="jc-message" name="message" rows="3" placeholder="Tell us where you'd like to go" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send message <span>↗</span></button>
+        </form>
+    </div>
+</section>
         </main>
-     @include('partials.footer')
+        @include('partials.footer')
     </div>
     <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search destinations" hidden>
         <div class="search-panel"><button class="modal-close" type="button" aria-label="Close search">×</button>
