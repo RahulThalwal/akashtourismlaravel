@@ -240,6 +240,7 @@
         </main>
         @include('partials.footer')
     </div>
+    @include('partials.contact-success-popup')
     <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search destinations" hidden>
         <div class="search-panel"><button class="modal-close" type="button" aria-label="Close search">×</button>
             <p class="eyebrow dark"><span></span> Find your next story</p>

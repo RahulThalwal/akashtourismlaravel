@@ -1,5 +1,23 @@
 import './bootstrap';
 
+const themeToggle = document.querySelector('[data-theme-toggle]');
+const setTheme = (theme) => {
+	document.documentElement.dataset.theme = theme;
+	const nextTheme = theme === 'dark' ? 'light' : 'dark';
+	const label = nextTheme === 'dark' ? 'Dark' : 'Light';
+	themeToggle?.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+	themeToggle?.setAttribute('title', `Switch to ${nextTheme} theme`);
+	const themeLabel = themeToggle?.querySelector('[data-theme-label]');
+	if (themeLabel) themeLabel.textContent = label;
+};
+
+setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+themeToggle?.addEventListener('click', () => {
+	const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+	localStorage.setItem('akash-tourism-theme', nextTheme);
+	setTheme(nextTheme);
+});
+
 const heroCarousel = document.querySelector('[data-destination-carousel]');
 if (heroCarousel) {
 	const slides = [
@@ -37,6 +55,24 @@ if (heroCarousel) {
 document.querySelectorAll('.site-footer > span').forEach((copyright) => {
 	copyright.textContent = copyright.textContent.replace('2024', '2026');
 });
+
+const contactSuccessPopup = document.querySelector('[data-contact-success-popup]');
+if (contactSuccessPopup) {
+	const handleContactSuccessKeydown = (event) => {
+		if (event.key === 'Escape') closeContactSuccessPopup();
+	};
+	const closeContactSuccessPopup = () => {
+		document.removeEventListener('keydown', handleContactSuccessKeydown);
+		contactSuccessPopup.remove();
+	};
+	contactSuccessPopup.querySelector('.contact-success-popup-close')?.addEventListener('click', closeContactSuccessPopup);
+	contactSuccessPopup.querySelector('.contact-success-popup-dismiss')?.addEventListener('click', closeContactSuccessPopup);
+	contactSuccessPopup.addEventListener('click', (event) => {
+		if (event.target === contactSuccessPopup) closeContactSuccessPopup();
+	});
+	document.addEventListener('keydown', handleContactSuccessKeydown);
+	contactSuccessPopup.querySelector('.contact-success-popup-close')?.focus();
+}
 
 const enquiryPopupKey = 'akash-tourism-enquiry-popup-seen';
 if (!window.localStorage.getItem(enquiryPopupKey)) {
