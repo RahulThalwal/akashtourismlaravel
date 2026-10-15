@@ -38,10 +38,6 @@
                 <div class="contact-card">
                     <p class="eyebrow"><span></span> Plan your journey</p>
 
-                    @if (session('contact_status'))
-                        <p class="contact-success">{{ session('contact_status') }}</p>
-                    @endif
-
                     @if ($errors->any())
                         <p class="contact-error">Please check the form and try again.</p>
                     @endif
@@ -73,6 +69,8 @@
         </main>
         @include('partials.footer')
     </div>
+
+    @include('partials.contact-success-popup')
 
     <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search destinations" hidden>
         <div class="search-panel">

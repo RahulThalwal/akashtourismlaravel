@@ -110,6 +110,37 @@ button {
     color: #697477
 }
 
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    font: 10px 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    white-space: nowrap
+}
+
+.theme-toggle svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7
+}
+
+.theme-toggle-sun,
+:root[data-theme='dark'] .theme-toggle-moon {
+    display: none
+}
+
+:root[data-theme='dark'] .theme-toggle-sun {
+    display: block
+}
+
 .desktop-nav a {
     padding: 9px 0;
     border-bottom: 1px solid transparent;
@@ -301,7 +332,10 @@ h2 em {
 }
 
 .hero-image {
+    position: relative;
     height: 100%;
+    overflow: hidden;
+    border-radius: 18px;
     background-position: center;
     background-size: cover;
     transform: translateX(0);
@@ -836,6 +870,15 @@ h2 em {
         display: none
     }
 
+    .theme-toggle {
+        padding: 7px;
+        border: 0
+    }
+
+    .theme-toggle span {
+        display: none
+    }
+
     .menu-toggle {
         display: block
     }
@@ -1192,6 +1235,52 @@ h1 {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --ink: #e9e6dc;
+    --paper: #121d21;
+    --surface: #1b2b30;
+    --surface-raised: #22343a;
+    --muted: #b2bcba;
+    --muted-light: #b2bcba;
+    --line: rgba(242, 240, 233, .18);
+    --footer: #0b1518
+}
+
+:root[data-theme='dark'] .about-hero,
+:root[data-theme='dark'] .blog-hero,
+:root[data-theme='dark'] .contact-hero,
+:root[data-theme='dark'] .destination-detail-info {
+    background: var(--surface)
+}
+
+:root[data-theme='dark'] .blog-card,
+:root[data-theme='dark'] .things-list li {
+    background: var(--surface-raised)
+}
+
+:root[data-theme='dark'] .faq-block,
+:root[data-theme='dark'] .faq-item {
+    border-color: var(--line)
+}
+
+:root[data-theme='dark'] p:not(.eyebrow):not(.contact-error):not(.enquiry-popup-status):not(.search-result) {
+    color: var(--muted)
+}
+
+:root[data-theme='dark'] .desktop-nav,
+:root[data-theme='dark'] .section-note,
+:root[data-theme='dark'] .filter-chip:not(.active),
+:root[data-theme='dark'] .hero-stats span,
+:root[data-theme='dark'] .card-kicker,
+:root[data-theme='dark'] .card-detail,
+:root[data-theme='dark'] .contact-details span,
+:root[data-theme='dark'] .blog-meta,
+:root[data-theme='dark'] .article-meta,
+:root[data-theme='dark'] .search-panel label {
+    color: var(--muted)
 }
 
 @media(max-width:900px) {

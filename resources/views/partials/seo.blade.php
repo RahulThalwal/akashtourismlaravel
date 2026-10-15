@@ -15,6 +15,9 @@
         'description' => $seoDescription,
     ];
 @endphp
+<script>
+    document.documentElement.dataset.theme = localStorage.getItem('akash-tourism-theme') === 'dark' ? 'dark' : 'light';
+</script>
 <title>{{ $seoTitle }}</title>
 <meta name="description" content="{{ $seoDescription }}">
 @if ($seoKeywords)<meta name="keywords" content="{{ $seoKeywords }}">@endif
