@@ -235,7 +235,7 @@
 }
 
 .article {
-    padding: 72px 7.2% 115px
+    padding: 32px 7.2% 115px
 }
 
 .back-to-blog {
@@ -516,5 +516,288 @@
 
     .faq-item summary {
         font-size: 16px
+    }
+}
+
+/* Add at the END of your blog CSS (after the existing .faq-item rules).
+   Text inside these components uses <span>/<dd>/<td>, not <p>, so your
+   .article-body p !important rules don't interfere. */
+
+/* ---------- Headings ---------- */
+.article-body .post-h2 {
+    font: 600 32px/1.15 'DM Sans', sans-serif;
+    letter-spacing: -.04em;
+    color: var(--ink);
+    margin: 60px 0 18px;
+    padding-top: 26px;
+    border-top: 1px solid #d8d4c8;
+    scroll-margin-top: 90px
+}
+
+.article-body .post-h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0
+}
+
+.article-body .post-h3 {
+    font: 600 21px/1.3 'DM Sans', sans-serif;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin: 34px 0 12px
+}
+
+/* ---------- Callout (Budget advantage / Best for) ---------- */
+.post-callout {
+    margin: 8px 0 30px;
+    padding: 6px 22px;
+    background: #efece3;
+    border-left: 3px solid var(--orange)
+}
+
+.post-callout>div {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 6px 18px;
+    padding: 14px 0
+}
+
+.post-callout>div+div {
+    border-top: 1px solid #dcd8cc
+}
+
+.post-callout dt {
+    font: 600 10px/1.8 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--orange)
+}
+
+.post-callout dd {
+    margin: 0;
+    font: 400 15.5px/1.7 'DM Sans', sans-serif;
+    color: var(--ink)
+}
+
+/* ---------- Table ---------- */
+.post-table-wrap {
+    margin: 0 0 32px;
+    overflow-x: auto;
+    border: 1px solid #d8d4c8
+}
+
+.post-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink)
+}
+
+.post-table thead th {
+    padding: 13px 16px;
+    background: var(--ink);
+    color: #f2f0e9;
+    text-align: left;
+    font: 500 10px/1.4 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    white-space: nowrap
+}
+
+.post-table tbody th,
+.post-table tbody td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #d8d4c8
+}
+
+.post-table tbody th {
+    font-weight: 600;
+    white-space: nowrap
+}
+
+.post-table tbody tr:nth-child(even) {
+    background: #efece3
+}
+
+/* ---------- Itinerary ---------- */
+.post-itinerary {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0 0 0 28px;
+    position: relative
+}
+
+.post-itinerary:before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(var(--orange), #d8d4c8)
+}
+
+.post-itinerary li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 0 26px
+}
+
+.post-itinerary li:last-child {
+    padding-bottom: 0
+}
+
+.post-itinerary li:before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--orange)
+}
+
+.post-itinerary-day {
+    font: 600 10px/1.6 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--orange)
+}
+
+.post-itinerary-title {
+    font: 600 19px/1.3 'DM Sans', sans-serif;
+    letter-spacing: -.02em;
+    color: var(--ink)
+}
+
+.post-itinerary-text {
+    font: 400 15.5px/1.7 'DM Sans', sans-serif;
+    color: #5f6a6c
+}
+
+/* ---------- Numbered tips ---------- */
+.post-tips {
+    list-style: none;
+    counter-reset: tip;
+    margin: 0 0 32px;
+    padding: 0
+}
+
+.post-tips li {
+    counter-increment: tip;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 0 18px 52px;
+    border-top: 1px solid #d8d4c8
+}
+
+.post-tips li:last-child {
+    border-bottom: 1px solid #d8d4c8
+}
+
+.post-tips li:before {
+    content: counter(tip, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 20px;
+    font: 500 13px/1 'DM Mono', monospace;
+    color: var(--orange)
+}
+
+.post-tip-title {
+    font: 600 17px/1.4 'DM Sans', sans-serif;
+    letter-spacing: -.015em;
+    color: var(--ink)
+}
+
+.post-tip-text {
+    font: 400 15.5px/1.7 'DM Sans', sans-serif;
+    color: #5f6a6c
+}
+
+/* ---------- Note ---------- */
+.post-note {
+    margin: 8px 0 30px;
+    padding: 18px 22px;
+    border: 1px dashed var(--orange);
+    font: 500 15.5px/1.7 'DM Sans', sans-serif;
+    color: var(--ink)
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:600px) {
+    .article-body .post-h2 {
+        font-size: 26px;
+        margin-top: 46px
+    }
+
+    .article-body .post-h3 {
+        font-size: 19px
+    }
+
+    .post-callout>div {
+        grid-template-columns: 1fr;
+        gap: 2px
+    }
+
+    /* tables turn into stacked cards */
+    .post-table-wrap {
+        border: 0
+    }
+
+    .post-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0)
+    }
+
+    .post-table,
+    .post-table tbody,
+    .post-table tr,
+    .post-table th,
+    .post-table td {
+        display: block;
+        width: 100%
+    }
+
+    .post-table tbody tr {
+        margin-bottom: 14px;
+        border: 1px solid #d8d4c8;
+        background: #efece3 !important
+    }
+
+    .post-table tbody th {
+        padding: 12px 14px;
+        border-top: 0;
+        background: var(--ink);
+        color: #f2f0e9;
+        white-space: normal
+    }
+
+    .post-table tbody td {
+        padding: 10px 14px;
+        border-top: 1px solid #dcd8cc
+    }
+
+    .post-table tbody td:before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 2px;
+        font: 500 9px/1.6 'DM Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: .09em;
+        color: var(--orange)
     }
 }
