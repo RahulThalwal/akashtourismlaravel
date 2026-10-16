@@ -1,11 +1,20 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-C6taDnNg.css",
+    "file": "assets/app-Dk_L8fwg.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
     "names": [
       "app.css"
+    ]
+  },
+  "resources/css/destination-detail.css": {
+    "file": "assets/destination-detail-DBcO9yaP.css",
+    "src": "resources/css/destination-detail.css",
+    "isEntry": true,
+    "name": "destination-detail",
+    "names": [
+      "destination-detail.css"
     ]
   },
   "resources/js/app.js": {

@@ -1084,11 +1084,6 @@ h1 {
     letter-spacing: normal
 }
 
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 17px
-}
 
 .footer-brand .brand {
     color: var(--paper);

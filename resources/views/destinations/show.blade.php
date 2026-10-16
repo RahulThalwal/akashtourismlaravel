@@ -75,23 +75,7 @@
 </section>
 @endif
         </main>
-        <footer class="site-footer">
-            <div class="footer-brand">
-                <div class="brand"><span class="brand-mark">A</span><span>Akash Tourism</span></div>
-                <p>Made for the curious.</p>
-            </div>
-            <div class="footer-links">
-                <div><strong>Site</strong><a href="{{ route('about') }}">About us</a><a
-                        href="{{ route('services') }}">Services</a><a href="{{ route('blog.index') }}">Blog</a><a
-                        href="{{ route('privacy') }}">Privacy policy</a></div>
-                <div><strong>Destinations</strong><a href="{{ route('destinations.show', 'delhi') }}">Delhi</a><a
-                        href="{{ route('destinations.show', 'agra') }}">Agra</a><a
-                        href="{{ route('destinations.show', 'jammu-kashmir') }}">Jammu & Kashmir</a><a
-                        href="{{ route('destinations.show', 'himachal-pradesh') }}">Himachal Pradesh</a><a
-                        href="{{ route('destinations.show', 'rajasthan') }}">Rajasthan</a>
-                    </div>
-            </div><span>© 2024 Akash Tourism India</span>
-        </footer>
+        @include('partials.footer')
     </div>
     <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search destinations" hidden>
         <div class="search-panel"><button class="modal-close" type="button" aria-label="Close search">×</button>
