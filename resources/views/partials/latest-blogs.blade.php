@@ -9,7 +9,7 @@
         @foreach ($blogs as $slug => $blog)
             <a class="blog-card latest-blog-card" href="{{ route('blog.show', ['slug' => $slug]) }}">
                 <div class="blog-card-image"><img src="{{ $blog['image'] }}"
-                        alt="{{ $blog['title'] }}"><span>{{ $blog['category'] }}</span></div>
+                        alt="{{ $blog['title'] }}" loading="lazy" decoding="async"><span>{{ $blog['category'] }}</span></div>
                 <div class="blog-card-content">
                     <div class="blog-meta"><span>{{ $blog['date'] }}</span><span>{{ $blog['read_time'] }}</span></div>
                     <h2>{{ $blog['title'] }}</h2>

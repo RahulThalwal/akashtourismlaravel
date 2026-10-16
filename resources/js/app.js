@@ -21,21 +21,21 @@ themeToggle?.addEventListener('click', () => {
 const heroCarousel = document.querySelector('[data-destination-carousel]');
 if (heroCarousel) {
 	const slides = [
-		{ image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1400&q=88', title: 'THE CAPITAL OF CONTRASTS', location: 'Delhi, India' },
-		{ image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1400&q=88', title: 'THE GOLDEN HOUR', location: 'Agra, Uttar Pradesh' },
-		{ image: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=1400&q=88', title: 'WHERE THE EARTH EXHALES', location: 'Jammu & Kashmir, India' },
-		{ image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1400&q=88', title: 'TAKE THE SCENIC ROUTE', location: 'Himachal Pradesh, India' },
+		{ image: 'photo-1587474260584-136574528ed5', title: 'THE CAPITAL OF CONTRASTS', location: 'Delhi, India' },
+		{ image: 'photo-1564507592333-c60657eea523', title: 'THE GOLDEN HOUR', location: 'Agra, Uttar Pradesh' },
+		{ image: 'photo-1595815771614-ade9d652a65d', title: 'WHERE THE EARTH EXHALES', location: 'Jammu & Kashmir, India' },
+		{ image: 'photo-1626621341517-bbf3d9990a23', title: 'TAKE THE SCENIC ROUTE', location: 'Himachal Pradesh, India' },
 	];
 	let currentSlide = 0;
+	const heroImage = heroCarousel.querySelector('.hero-slide-image');
 	const number = document.querySelector('[data-carousel-number]');
 	const title = document.querySelector('[data-carousel-title]');
 	const location = document.querySelector('[data-carousel-location]');
-	slides.forEach(({ image }) => { const preload = new Image(); preload.src = image; });
+	const imageUrl = (id, width) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=76`;
 	const showSlide = (slide, index) => {
 		heroCarousel.style.opacity = '0';
 		heroCarousel.style.transform = 'translateX(28px)';
-		window.setTimeout(() => {
-			heroCarousel.style.backgroundImage = `url("${slide.image}")`;
+		const revealSlide = () => {
 			if (number) number.textContent = String(index + 1).padStart(2, '0');
 			if (title) title.textContent = slide.title;
 			if (location) location.textContent = slide.location;
@@ -43,13 +43,62 @@ if (heroCarousel) {
 				heroCarousel.style.opacity = '1';
 				heroCarousel.style.transform = 'translateX(0)';
 			});
-		}, 450);
+		};
+		if (!heroImage) {
+			heroCarousel.style.opacity = '1';
+			return;
+		}
+		heroImage.onload = revealSlide;
+		heroImage.onerror = () => {
+			heroCarousel.style.opacity = '1';
+			heroCarousel.style.transform = 'translateX(0)';
+		};
+		heroImage.srcset = `${imageUrl(slide.image, 480)} 480w, ${imageUrl(slide.image, 800)} 800w, ${imageUrl(slide.image, 1200)} 1200w`;
+		heroImage.src = imageUrl(slide.image, 800);
 	};
-	heroCarousel.style.backgroundImage = `url("${slides[0].image}")`;
-	window.setInterval(() => {
-		currentSlide = (currentSlide + 1) % slides.length;
-		showSlide(slides[currentSlide], currentSlide);
-	}, 5000);
+	if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		let carouselInterval;
+		const startCarousel = () => {
+			if (carouselInterval || document.hidden) return;
+			carouselInterval = window.setInterval(() => {
+				currentSlide = (currentSlide + 1) % slides.length;
+				showSlide(slides[currentSlide], currentSlide);
+			}, 5000);
+		};
+		const stopCarousel = () => {
+			window.clearInterval(carouselInterval);
+			carouselInterval = undefined;
+		};
+		if ('IntersectionObserver' in window) {
+			const carouselObserver = new IntersectionObserver(([entry]) => {
+				if (entry.isIntersecting) startCarousel();
+				else stopCarousel();
+			});
+			carouselObserver.observe(heroCarousel);
+		} else {
+			startCarousel();
+		}
+		document.addEventListener('visibilitychange', () => {
+			if (document.hidden) stopCarousel();
+			else startCarousel();
+		});
+	}
+}
+
+const deferredBackgrounds = document.querySelectorAll('[data-bg-image]');
+if ('IntersectionObserver' in window) {
+	const backgroundObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) return;
+			entry.target.style.backgroundImage = `url("${entry.target.dataset.bgImage}")`;
+			observer.unobserve(entry.target);
+		});
+	}, { rootMargin: '300px' });
+	deferredBackgrounds.forEach((element) => backgroundObserver.observe(element));
+} else {
+	deferredBackgrounds.forEach((element) => {
+		element.style.backgroundImage = `url("${element.dataset.bgImage}")`;
+	});
 }
 
 document.querySelectorAll('.site-footer > span').forEach((copyright) => {
