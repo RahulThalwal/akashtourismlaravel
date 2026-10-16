@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
     @include('partials.seo', [
         'seoTitle' => 'Akash Tourism | Thoughtful journeys across India',
         'seoDescription' =>
@@ -38,7 +41,12 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="hero-image image-overlay" data-destination-carousel></div>
+                    <div class="hero-image image-overlay" data-destination-carousel>
+                        <img class="hero-slide-image"
+                            src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=76"
+                            srcset="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=480&q=76 480w, https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=76 800w, https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=76 1200w"
+                            sizes="(max-width: 900px) 100vw, 50vw" alt="" fetchpriority="high" decoding="async">
+                    </div>
                     <div class="hero-caption"><span data-carousel-number>01</span><strong data-carousel-title>THE
                             CAPITAL OF CONTRASTS</strong><small data-carousel-location>Delhi, India</small></div>
                     <div class="scroll-note"><span class="scroll-line"></span> Scroll to wander</div>
@@ -50,8 +58,6 @@
                         <p class="eyebrow dark"><span></span> Your next chapter</p>
                         <h2>Choose your<br><em>kind of escape.</em></h2>
                     </div>
-                    <p class="section-note">Four moods. A thousand ways to feel alive. Follow the feeling and we’ll take
-                        care of the rest.</p>
                 </div>
                 <div class="filter-row" role="group" aria-label="Filter destinations"><button
                         class="filter-chip active" type="button" data-filter="all">All places</button><button
@@ -60,78 +66,99 @@
                         class="filter-chip" type="button" data-filter="slow">Slow travel</button></div>
                 <div class="destination-grid">
                     <article class="destination-card" data-category="culture">
-                        <div class="card-image"><img
-                                src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1000&q=85"
-                                alt="Jama Masjid in Delhi at sunset"><span class="card-number">01</span><button
-                                class="save-button" type="button" aria-label="Save Delhi destination">♡</button></div>
-                        <div class="card-body">
-                            <div>
-                                <p class="card-kicker">The capital of contrasts</p>
-                                <h3>Delhi</h3>
-                            </div><span class="card-arrow">↗</span>
-                            <p class="card-detail">Bazaars, bold flavours & old-world stories</p>
+                        <div class="card-image">
+                            <a class="destination-card-link" href="{{ route('destinations.show', 'delhi') }}">
+                                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=700&q=75"
+                                    alt="Jama Masjid in Delhi at sunset" loading="lazy" decoding="async">
+                                <span class="card-number">01</span>
+                                <div class="card-body">
+                                    <div>
+                                        <p class="card-kicker">The capital of contrasts</p>
+                                        <h3>Delhi</h3>
+                                    </div>
+                                    <p class="card-detail">Bazaars, bold flavours & old-world stories</p>
+                                </div>
+                            </a>
+                            <button class="save-button" type="button" aria-label="Save Delhi destination">♡</button>
                         </div>
                     </article>
                     <article class="destination-card" data-category="culture">
-                        <div class="card-image"><img
-                                src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1000&q=85"
-                                alt="The Taj Mahal in Agra reflected in water"><span
-                                class="card-number">02</span><button class="save-button" type="button"
-                                aria-label="Save Agra destination">♡</button></div>
-                        <div class="card-body">
-                            <div>
-                                <p class="card-kicker">A monument to wonder</p>
-                                <h3>Agra</h3>
-                            </div><span class="card-arrow">↗</span>
-                            <p class="card-detail">Marble mornings & Mughal magic</p>
+                        <div class="card-image">
+                            <a class="destination-card-link" href="{{ route('destinations.show', 'agra') }}">
+                                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=75"
+                                    alt="The Taj Mahal in Agra reflected in water" loading="lazy" decoding="async">
+                                <span class="card-number">02</span>
+                                <div class="card-body">
+                                    <div>
+                                        <p class="card-kicker">A monument to wonder</p>
+                                        <h3>Agra</h3>
+                                    </div>
+                                    <p class="card-detail">Marble mornings & Mughal magic</p>
+                                </div>
+                            </a>
+                            <button class="save-button" type="button" aria-label="Save Agra destination">♡</button>
                         </div>
                     </article>
                     <article class="destination-card" data-category="mountains">
-                        <div class="card-image"><img
-                                src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=1000&q=85"
-                                alt="Snowy mountains and a lake in Kashmir"><span class="card-number">03</span><button
-                                class="save-button" type="button"
-                                aria-label="Save Jammu and Kashmir destination">♡</button></div>
-                        <div class="card-body">
-                            <div>
-                                <p class="card-kicker">Where the earth exhales</p>
-                                <h3>J&K</h3>
-                            </div><span class="card-arrow">↗</span>
-                            <p class="card-detail">Alpine lakes, cedar forests & quiet</p>
+                        <div class="card-image">
+                            <a class="destination-card-link"
+                                href="{{ route('destinations.show', 'jammu-kashmir') }}">
+                                <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=700&q=75"
+                                    alt="Snowy mountains and a lake in Kashmir" loading="lazy" decoding="async">
+                                <span class="card-number">03</span>
+                                <div class="card-body">
+                                    <div>
+                                        <p class="card-kicker">Where the earth exhales</p>
+                                        <h3>J&K</h3>
+                                    </div>
+                                    <p class="card-detail">Alpine lakes, cedar forests & quiet</p>
+                                </div>
+                            </a>
+                            <button class="save-button" type="button"
+                                aria-label="Save Jammu and Kashmir destination">♡</button>
                         </div>
                     </article>
                     <article class="destination-card" data-category="mountains slow">
-                        <div class="card-image"><img
-                                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1000&q=85"
-                                alt="Himalayan valley in Himachal Pradesh"><span class="card-number">04</span><button
-                                class="save-button" type="button"
-                                aria-label="Save Himachal Pradesh destination">♡</button></div>
-                        <div class="card-body">
-                            <div>
-                                <p class="card-kicker">Take the scenic route</p>
-                                <h3>Himachal</h3>
-                            </div><span class="card-arrow">↗</span>
-                            <p class="card-detail">Pine trails, mountain cafés & slow days</p>
+                        <div class="card-image">
+                            <a class="destination-card-link"
+                                href="{{ route('destinations.show', 'himachal-pradesh') }}">
+                                <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=700&q=75"
+                                    alt="Himalayan valley in Himachal Pradesh" loading="lazy" decoding="async">
+                                <span class="card-number">04</span>
+                                <div class="card-body">
+                                    <div>
+                                        <p class="card-kicker">Take the scenic route</p>
+                                        <h3>Himachal</h3>
+                                    </div>
+                                    <p class="card-detail">Pine trails, mountain cafés & slow days</p>
+                                </div>
+                            </a>
+                            <button class="save-button" type="button"
+                                aria-label="Save Himachal Pradesh destination">♡</button>
                         </div>
                     </article>
                     <article class="destination-card" data-category="heritage desert">
-                        <div class="card-image"><img
-                                src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1000&q=85"
-                                alt="Desert fort in Rajasthan"><span class="card-number">05</span><button
-                                class="save-button" type="button" aria-label="Save Rajasthan destination">♡</button>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <p class="card-kicker">A kingdom of sand and stone</p>
-                                <h3>Rajasthan</h3>
-                            </div><span class="card-arrow">↗</span>
-                            <p class="card-detail">Desert forts, painted cities & royal nights</p>
+                        <div class="card-image">
+                            <a class="destination-card-link" href="{{ route('destinations.rajasthan') }}">
+                                <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=700&q=75"
+                                    alt="Desert fort in Rajasthan" loading="lazy" decoding="async">
+                                <span class="card-number">05</span>
+                                <div class="card-body">
+                                    <div>
+                                        <p class="card-kicker">A kingdom of sand and stone</p>
+                                        <h3>Rajasthan</h3>
+                                    </div>
+                                    <p class="card-detail">Desert forts, painted cities & royal nights</p>
+                                </div>
+                            </a>
+                            <button class="save-button" type="button"
+                                aria-label="Save Rajasthan destination">♡</button>
                         </div>
                     </article>
                 </div>
             </section>
             <section class="why-section" id="why-choose-us"
-                style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=85');">
+                data-bg-image="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=75">
                 <div class="why-overlay"></div>
                 <div class="why-content">
                     <div class="section-heading">
@@ -207,7 +234,7 @@
             @include('partials.latest-blogs', ['blogs' => $latestBlogs])
             <section class="journal-strip" id="journal">
     <div class="journal-bg"
-        style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=85');">
+        data-bg-image="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=75">
     </div>
     <div class="journal-overlay"></div>
 

@@ -332,14 +332,20 @@ h2 em {
 }
 
 .hero-image {
-    position: relative;
-    height: 100%;
+    position: absolute;
+    inset: 0;
     overflow: hidden;
     border-radius: 18px;
     background-position: center;
     background-size: cover;
     transform: translateX(0);
     transition: opacity .45s ease, transform .45s ease
+}
+
+.hero-slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .image-overlay:after {
@@ -465,17 +471,43 @@ h2 em {
     height: 345px;
     position: relative;
     overflow: hidden;
-    background: #d1d0c9
+    background: #d1d0c9;
+    cursor: pointer
 }
 
-.card-image img {
+.destination-card-link::after {
+    content: '';
+    position: absolute;
+    inset: 35% 0 0;
+    background: linear-gradient(transparent, rgba(16, 31, 37, .82));
+    z-index: 1;
+    pointer-events: none
+}
+
+.destination-card-link {
+    position: absolute;
+    inset: 0;
+    display: block;
+    color: inherit
+}
+
+.destination-card-link:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: -5px
+}
+
+.destination-card-link img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 0;
     transition: transform .6s
 }
 
-.destination-card:hover .card-image img {
+.destination-card:hover .destination-card-link img,
+.destination-card-link:focus-visible img {
     transform: scale(1.06)
 }
 
@@ -484,7 +516,8 @@ h2 em {
     left: 14px;
     top: 14px;
     color: #fff;
-    font: 10px 'DM Mono', monospace
+    font: 10px 'DM Mono', monospace;
+    z-index: 2
 }
 
 .save-button {
@@ -498,7 +531,8 @@ h2 em {
     background: rgba(23, 43, 50, .18);
     color: #fff;
     font-size: 20px;
-    line-height: 1
+    line-height: 1;
+    z-index: 2
 }
 
 .save-button.saved {
@@ -508,12 +542,15 @@ h2 em {
 
 .card-body {
     display: grid;
-    grid-template-columns: 1fr auto;
-    padding: 17px 2px 0
+    position: absolute;
+    inset: auto 16px 17px;
+    padding: 0;
+    color: #fff;
+    z-index: 2
 }
 
 .card-kicker {
-    color: #7e898a;
+    color: rgba(255, 255, 255, .82);
     font: 10px 'DM Mono', monospace;
     text-transform: uppercase;
     letter-spacing: .06em;
@@ -522,17 +559,12 @@ h2 em {
 
 .card-body h3 {
     font-size: 32px;
-    margin: 0
-}
-
-.card-arrow {
-    font-size: 23px;
-    color: var(--orange)
+    margin: 0;
+    color: #fff
 }
 
 .card-detail {
-    grid-column: span 2;
-    color: #778082;
+    color: rgba(255, 255, 255, .88);
     font-size: 12px;
     margin: 13px 0 0
 }
@@ -1281,6 +1313,11 @@ h1 {
 :root[data-theme='dark'] .article-meta,
 :root[data-theme='dark'] .search-panel label {
     color: var(--muted)
+}
+
+:root[data-theme='dark'] .card-image .card-kicker,
+:root[data-theme='dark'] .card-image .card-detail {
+    color: rgba(255, 255, 255, .88)
 }
 
 @media(max-width:900px) {
