@@ -8,6 +8,7 @@ Route::view('/services', 'services')->name('services');
 Route::view('/about', 'about')->name('about');
 Route::view('/privacy', 'privacy')->name('privacy');
 Route::view('/contact', 'contact')->name('contact');
+Route::view('/airport-pickup-drop-service', 'airpot')->name('airport-pickup-drop-service');
 Route::view('/rajasthan-tour', 'destinations.rajasthan.rajasthan')->name('destinations.rajasthan');
 Route::view('/delhi', 'destinations.delhi.show')->name('destinations.delhi');
 Route::view('/jammu-kashmir', 'destinations.jammu.jammu')->name('destinations.jammu-kashmir');

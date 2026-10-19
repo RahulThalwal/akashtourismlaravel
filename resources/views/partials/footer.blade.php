@@ -8,7 +8,8 @@
      </div>
      <div class="footer-links">
          <div><strong>Site</strong><a href="{{ route('about') }}">About us</a><a
-                 href="{{ route('services') }}">Services</a><a href="{{ route('blog.index') }}">Blog</a><a
+                 href="{{ route('services') }}">Services</a><a href="{{ route('airport-pickup-drop-service') }}">Airport pickup &amp; drop</a><a
+                 href="{{ route('blog.index') }}">Blog</a><a
                  href="{{ route('privacy') }}">Privacy policy</a></div>
          <div><strong>Destinations</strong><a href="{{ route('destinations.show', 'delhi') }}">Delhi</a><a
                  href="{{ route('destinations.show', 'agra') }}">Agra</a><a
