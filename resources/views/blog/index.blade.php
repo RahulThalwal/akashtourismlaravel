@@ -23,19 +23,10 @@
     <div class="site-shell">
         @include('partials.navbar')
         <main>
-            <section class="blog-hero">
-                <div>
-                    <p class="eyebrow dark"><span></span> The Akash Tourism journal</p>
-                    <h1>Notes from<br><em>the road.</em></h1>
-                    <p>Small details, local voices, and the places that stay with us. Read before you go, or when you
-                        need somewhere new to dream about.</p>
-                </div>
-                <div class="blog-hero-stamp"><strong>04</strong><span>stories<br>to start with</span></div>
-            </section>
             <section class="blog-index-section">
                 <div class="blog-section-heading">
-                    <p class="eyebrow dark"><span></span> Latest field notes</p>
-                    <p>Stories from Delhi, Agra, Jammu & Kashmir, and Himachal Pradesh.</p>
+                    <p class="eyebrow dark"> Latest Blog Posts</p>
+                    <p></p>
                 </div>
                 <div class="blog-grid">
                     @foreach ($blogs as $slug => $blog)
@@ -47,7 +38,7 @@
                                     <span>{{ $blog['date'] }}</span><span>{{ $blog['read_time'] }}</span>
                                 </div>
                                 <h2>{{ $blog['title'] }}</h2>
-                                <p>{{ $blog['intro'] }}</p><span class="blog-read-link">Read story <i>↗</i></span>
+                                <p>{{ \Illuminate\Support\Str::limit($blog['intro'], 125) }}</p><span class="blog-read-link">Read story <i>↗</i></span>
                             </div>
                         </a>
                     @endforeach

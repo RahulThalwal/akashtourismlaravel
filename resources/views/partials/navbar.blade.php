@@ -8,8 +8,7 @@
                     href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a
                     href="{{ route('privacy') }}">Privacy</a>                    </nav>
                     <div class="header-actions">
-                        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme"
-                    title="Switch to dark theme">
+                        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
                     <svg class="theme-toggle-moon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path>
                     </svg>
@@ -17,9 +16,7 @@
                         <circle cx="12" cy="12" r="4"></circle>
                         <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
                     </svg>
-                    <span data-theme-label>Dark</span>
                 </button>
-                <a class="saved-link" href="#saved">Saved <span>0</span></a>
                 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"
                     aria-label="Toggle menu"><span></span><span></span></button>
             </div>

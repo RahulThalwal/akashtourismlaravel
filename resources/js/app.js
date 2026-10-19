@@ -4,11 +4,7 @@ const themeToggle = document.querySelector('[data-theme-toggle]');
 const setTheme = (theme) => {
 	document.documentElement.dataset.theme = theme;
 	const nextTheme = theme === 'dark' ? 'light' : 'dark';
-	const label = nextTheme === 'dark' ? 'Dark' : 'Light';
 	themeToggle?.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
-	themeToggle?.setAttribute('title', `Switch to ${nextTheme} theme`);
-	const themeLabel = themeToggle?.querySelector('[data-theme-label]');
-	if (themeLabel) themeLabel.textContent = label;
 };
 
 setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');

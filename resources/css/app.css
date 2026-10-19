@@ -11,6 +11,7 @@
 @import './latest-blogs.css';
 @import './enquiry-popup.css';
 @import './destination-detail.css';
+@import './airpot.css';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -113,20 +114,30 @@ button {
 .theme-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 8px 10px;
-    border: 1px solid var(--line);
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
     background: transparent;
     color: var(--ink);
-    font: 10px 'DM Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    white-space: nowrap
+    cursor: pointer;
+    transition: background-color .2s, color .2s
+}
+
+.theme-toggle:hover {
+    background: var(--surface-raised)
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px
 }
 
 .theme-toggle svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.7
@@ -403,7 +414,7 @@ h2 em {
 }
 
 .explore-section {
-    padding: 102px 7.2% 120px;
+    padding: 62px 7.2% 120px;
     background: #e9e6dc
 }
 
@@ -460,6 +471,8 @@ h2 em {
 
 .destination-card {
     min-width: 0;
+    border-radius: 16px;
+    overflow: hidden;
     transition: opacity .3s, transform .3s
 }
 
@@ -577,6 +590,8 @@ h2 em {
     color: var(--paper);
     isolation: isolate;
     overflow: hidden;
+    border-radius: 24px;
+    margin: 0 7.2% 48px;
 }
 
 /* Full-bleed photo behind both columns — same technique as .why-section */
@@ -726,6 +741,8 @@ h2 em {
 @media (max-width: 768px) {
     .journal-strip {
         grid-template-columns: 1fr;
+        margin: 0 5% 40px;
+        border-radius: 20px;
     }
 
     .journal-copy {
@@ -875,10 +892,6 @@ h2 em {
         height: 310px
     }
 
-    .journal-strip {
-        grid-template-columns: 1fr
-    }
-
     .journal-copy {
         padding: 70px 8% 65px
     }
@@ -893,21 +906,17 @@ h2 em {
 }
 
 @media (max-width:600px) {
+    .journal-strip {
+        margin: 0 5% 32px;
+        border-radius: 16px
+    }
+
     .site-header {
         height: 72px
     }
 
     .desktop-nav,
     .saved-link {
-        display: none
-    }
-
-    .theme-toggle {
-        padding: 7px;
-        border: 0
-    }
-
-    .theme-toggle span {
         display: none
     }
 
@@ -1357,8 +1366,10 @@ h1 {
 .site-footer {
     display: block;
     min-height: 0;
+    margin: 32px;
     padding: 0 clamp(24px, 7.2%, 104px);
     border: 0;
+    border-radius: 24px;
     background: var(--footer);
     color: #bac0bb
 }
@@ -1481,6 +1492,10 @@ h1 {
 }
 
 @media(max-width:960px) {
+    .site-footer {
+        margin: 24px
+    }
+
     .footer-main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 42px 36px;
@@ -1489,6 +1504,11 @@ h1 {
 }
 
 @media(max-width:600px) {
+    .site-footer {
+        margin: 16px;
+        border-radius: 18px
+    }
+
     .footer-main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 34px 20px;
@@ -1505,5 +1525,257 @@ h1 {
         gap: 9px;
         padding: 17px 0 21px;
         font-size: 9px
+    }
+}
+
+.home-hero {
+    position: relative;
+    grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+    align-items: center;
+    gap: clamp(38px, 6vw, 88px);
+    min-height: 690px;
+    padding: 44px clamp(28px, 7.2vw, 104px) 62px;
+    background:
+        radial-gradient(ellipse at 3% 8%, rgba(246, 199, 93, .16), transparent 34%),
+        #f2f0e9
+}
+
+.home-hero-copy {
+    z-index: 1;
+    max-width: 560px;
+    padding: 0
+}
+
+.home-hero-copy .eyebrow {
+    color: var(--orange)
+}
+
+.home-hero-copy h1 {
+    margin: 28px 0 25px;
+    font-size: clamp(54px, 6vw, 86px);
+    line-height: .99;
+    letter-spacing: -.065em
+}
+
+.home-hero-copy h1 em {
+    color: var(--orange);
+    font-weight: 500
+}
+
+.home-hero-copy .hero-intro {
+    max-width: 400px;
+    color: #687477;
+    font-size: 16px;
+    line-height: 1.75
+}
+
+.home-hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 30px
+}
+
+.home-hero-actions .primary-button {
+    gap: 24px;
+    margin: 0;
+    padding: 16px 20px;
+    border-radius: 3px;
+    background: var(--orange)
+}
+
+.hero-secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--ink);
+    font: 11px var(--font-mono);
+    transition: color .2s
+}
+
+.hero-secondary-link:hover {
+    color: var(--orange)
+}
+
+.home-hero .hero-stats {
+    gap: 42px;
+    margin-top: 62px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line)
+}
+
+.home-hero .hero-stats div {
+    gap: 5px
+}
+
+.home-hero .hero-stats strong {
+    color: var(--orange);
+    font-size: 30px
+}
+
+.home-hero .hero-stats span {
+    color: #7a8587;
+    font-size: 9px
+}
+
+.home-hero-visual {
+    min-height: 570px;
+    margin: 0
+}
+
+.home-hero-visual .hero-image {
+    border-radius: 18px;
+    box-shadow: 0 28px 65px rgba(23, 43, 50, .16)
+}
+
+.home-hero-visual .hero-image img {
+    object-position: center
+}
+
+.hero-image-badge {
+    position: absolute;
+    z-index: 1;
+    top: 22px;
+    left: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .92);
+    color: var(--ink);
+    box-shadow: 0 8px 24px rgba(23, 43, 50, .1);
+    font: 9px var(--font-mono);
+    letter-spacing: .07em;
+    text-transform: uppercase
+}
+
+.hero-image-badge span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--orange)
+}
+
+.home-hero-visual .hero-caption {
+    left: 22px;
+    bottom: 22px;
+    grid-template-columns: 31px auto;
+    gap: 3px 12px;
+    padding: 16px 19px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    background: rgba(16, 31, 37, .78);
+    backdrop-filter: blur(12px)
+}
+
+.home-hero-visual .hero-caption span {
+    color: var(--yellow)
+}
+
+.home-hero-visual .hero-caption strong {
+    font-size: 10px
+}
+
+.home-hero-visual .hero-caption small {
+    color: rgba(255, 255, 255, .8)
+}
+
+.home-hero-visual .scroll-note {
+    right: 24px;
+    bottom: 24px
+}
+
+@media(max-width:900px) {
+    .home-hero {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 64px 5% 58px
+    }
+
+    .home-hero-copy {
+        max-width: 680px;
+        padding: 0
+    }
+
+    .home-hero-copy h1 {
+        font-size: clamp(58px, 9vw, 82px)
+    }
+
+    .home-hero-copy .hero-intro {
+        max-width: 520px
+    }
+
+    .home-hero .hero-stats {
+        margin-top: 38px
+    }
+
+    .home-hero-visual {
+        min-height: 510px;
+        margin: 0
+    }
+}
+
+@media(max-width:600px) {
+    .home-hero {
+        gap: 30px;
+        padding: 48px 5% 42px
+    }
+
+    .home-hero-copy h1 {
+        margin: 23px 0 18px;
+        font-size: clamp(48px, 13vw, 68px)
+    }
+
+    .home-hero-copy .hero-intro {
+        font-size: 14px
+    }
+
+    .home-hero-actions {
+        align-items: flex-start;
+        gap: 18px;
+        margin-top: 24px
+    }
+
+    .home-hero-actions .primary-button {
+        gap: 15px;
+        padding: 14px 15px;
+        font-size: 10px
+    }
+
+    .hero-secondary-link {
+        min-height: 44px;
+        font-size: 10px
+    }
+
+    .home-hero .hero-stats {
+        gap: 30px;
+        margin-top: 30px;
+        padding-top: 18px
+    }
+
+    .home-hero-visual {
+        min-height: 420px
+    }
+
+    .hero-image-badge {
+        top: 14px;
+        left: 14px;
+        padding: 9px 11px;
+        font-size: 8px
+    }
+
+    .home-hero-visual .hero-caption {
+        left: 14px;
+        bottom: 14px;
+        padding: 13px 14px
+    }
+
+    .home-hero-visual .scroll-note {
+        right: 14px;
+        bottom: 15px;
+        font-size: 8px
     }
 }

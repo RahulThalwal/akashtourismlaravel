@@ -1,3 +1,47 @@
+@php
+    $homeFaqs = [
+        [
+            'question' => 'What are the best tourist places to visit in India?',
+            'answer' => 'India offers a wide range of destinations, including Rajasthan for royal palaces and heritage, Kerala for backwaters, Goa for beaches, Kashmir for mountain scenery, Himachal Pradesh for hill stations, and Agra for the Taj Mahal. The best destination depends on your interests, budget, and travel dates.',
+        ],
+        [
+            'question' => 'What is the best time to visit India?',
+            'answer' => 'October to March is generally a popular time to explore many parts of India because of the milder weather. Summer is suitable for several Himalayan destinations, while the monsoon season offers lush landscapes in places such as Kerala and Meghalaya. The ideal time varies by region.',
+        ],
+        [
+            'question' => 'How much does an India tour package cost?',
+            'answer' => 'The cost of an India tour package depends on the destination, trip duration, hotel category, transport, meals, and activities. Budget trips can be more affordable, while luxury holidays and customised itineraries cost more. Request a personalised quote to match your travel budget.',
+        ],
+        [
+            'question' => 'Which are the best places to visit in India with family?',
+            'answer' => 'Popular family holiday destinations include Jaipur, Udaipur, Kerala, Goa, Shimla, Manali, Ooty, and Mysuru. Families can choose from sightseeing tours, nature experiences, wildlife parks, cultural attractions, and relaxing resort stays.',
+        ],
+        [
+            'question' => 'Which are the best honeymoon destinations in India?',
+            'answer' => 'Kashmir, Manali, Shimla, Udaipur, Kerala, Andaman and Nicobar Islands, and Goa are popular honeymoon choices. Couples can select a destination based on whether they prefer mountains, beaches, romantic houseboat stays, luxury resorts, or sightseeing.',
+        ],
+        [
+            'question' => 'How can I plan a trip to India on a budget?',
+            'answer' => 'To plan an affordable India trip, book transport in advance, compare accommodation options, travel during the shoulder season, and prioritise destinations within the same region. Choosing a customised package can also help you manage transport, hotel, and sightseeing expenses.',
+        ],
+        [
+            'question' => 'Which are the best hill stations to visit in India?',
+            'answer' => 'Popular hill stations include Manali, Shimla, Mussoorie, Darjeeling, Ooty, Munnar, Coorg, and Nainital. The best choice depends on the season, preferred activities, accessibility, and whether you want adventure, relaxation, or scenic views.',
+        ],
+        [
+            'question' => 'Which are the best beach destinations in India?',
+            'answer' => 'Goa, the Andaman and Nicobar Islands, Lakshadweep, Varkala, and Gokarna are popular beach destinations. Travellers can enjoy beach relaxation, water activities, coastal scenery, and local cuisine, depending on the destination and season.',
+        ],
+        [
+            'question' => 'How many days are enough to explore India?',
+            'answer' => 'A short trip of 3–5 days is suitable for one city or a nearby region. A 7–10-day itinerary allows travellers to explore several destinations within one region, while a longer trip is better for discovering multiple parts of India.',
+        ],
+        [
+            'question' => 'What are the best places for a weekend trip in India?',
+            'answer' => 'Popular weekend destinations include Rishikesh, Jaipur, Agra, Mussoorie, Lonavala, Udaipur, and Pondicherry. The best option depends on your departure city, available travel time, and preferred experience.',
+        ],
+    ];
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +58,26 @@
         'seoType' => 'website',
         'seoSchema' => [
             '@context' => 'https://schema.org',
-            '@type' => 'TravelAgency',
-            'name' => 'Akash Tourism',
-            'url' => 'https://akashtourism.in',
-            'description' => 'Thoughtful journeys across India.',
-            'areaServed' => ['Delhi', 'Agra', 'Jammu & Kashmir', 'Himachal Pradesh'],
+            '@graph' => [
+                [
+                    '@type' => 'TravelAgency',
+                    'name' => 'Akash Tourism',
+                    'url' => rtrim(env('SEO_SITE_URL', 'https://akashjourney.com'), '/'),
+                    'description' => 'Thoughtful journeys across India.',
+                    'areaServed' => ['Delhi', 'Agra', 'Jammu & Kashmir', 'Himachal Pradesh'],
+                ],
+                [
+                    '@type' => 'FAQPage',
+                    'mainEntity' => array_map(fn (array $faq) => [
+                        '@type' => 'Question',
+                        'name' => $faq['question'],
+                        'acceptedAnswer' => [
+                            '@type' => 'Answer',
+                            'text' => $faq['answer'],
+                        ],
+                    ], $homeFaqs),
+                ],
+            ],
         ],
     ])
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -28,25 +87,29 @@
     <div class="site-shell">
         @include('partials.navbar')
         <main id="top">
-            <section class="hero-section">
-                <div class="hero-copy">
-                    <p class="eyebrow"><span></span> Curated journeys, made personal</p>
-                    <h1>Go where<br><em>stories begin.</em></h1>
-                    <p class="hero-intro">From ancient cities to wild mountain air, discover the India that stays with
-                        you long after you leave.</p><a class="primary-button" href="#destinations">Start exploring
-                        <span>↗</span></a>
+            <section class="hero-section home-hero">
+                <div class="hero-copy home-hero-copy">
+                    <p class="eyebrow"><span></span> India, thoughtfully discovered</p>
+                    <h1>Find your way<br>to <em>somewhere real.</em></h1>
+                    <p class="hero-intro">From old-city lanes to open Himalayan skies, discover India through places
+                        and experiences that stay with you.</p>
+                    <div class="home-hero-actions">
+                        <a class="primary-button" href="#destinations">Explore destinations <span>↗</span></a>
+                        <a class="hero-secondary-link" href="{{ route('contact') }}">Plan a journey <span>↗</span></a>
+                    </div>
                     <div class="hero-stats">
                         <div><strong>04</strong><span>iconic regions</span></div>
                         <div><strong>48</strong><span>handpicked stays</span></div>
                     </div>
                 </div>
-                <div class="hero-visual">
+                <div class="hero-visual home-hero-visual">
                     <div class="hero-image image-overlay" data-destination-carousel>
                         <img class="hero-slide-image"
                             src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=76"
                             srcset="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=480&q=76 480w, https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=76 800w, https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=76 1200w"
                             sizes="(max-width: 900px) 100vw, 50vw" alt="" fetchpriority="high" decoding="async">
                     </div>
+                    <div class="hero-image-badge"><span></span> Journeys made around you</div>
                     <div class="hero-caption"><span data-carousel-number>01</span><strong data-carousel-title>THE
                             CAPITAL OF CONTRASTS</strong><small data-carousel-location>Delhi, India</small></div>
                     <div class="scroll-note"><span class="scroll-line"></span> Scroll to wander</div>
@@ -56,7 +119,7 @@
                 <div class="section-heading">
                     <div>
                         <p class="eyebrow dark"><span></span> Your next chapter</p>
-                        <h2>Choose your<br><em>kind of escape.</em></h2>
+                        <h2>Choose your<em> kind of escape.</em></h2>
                     </div>
                 </div>
                 <div class="filter-row" role="group" aria-label="Filter destinations"><button
@@ -101,8 +164,7 @@
                     </article>
                     <article class="destination-card" data-category="mountains">
                         <div class="card-image">
-                            <a class="destination-card-link"
-                                href="{{ route('destinations.show', 'jammu-kashmir') }}">
+                            <a class="destination-card-link" href="{{ route('destinations.show', 'jammu-kashmir') }}">
                                 <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=700&q=75"
                                     alt="Snowy mountains and a lake in Kashmir" loading="lazy" decoding="async">
                                 <span class="card-number">03</span>
@@ -199,8 +261,8 @@
             </section>
             <section class="testimonials-section" aria-labelledby="traveller-notes-title">
                 <div class="testimonials-heading">
-                    <p class="eyebrow dark"><span></span> Traveller notes</p>
-                    <h2 id="traveller-notes-title">Loved by people<br>who <em>wander.</em></h2>
+                    <p class="eyebrow dark"> Traveller notes</p>
+                    <h2 id="traveller-notes-title">Loved by people who <em>wander.</em></h2>
                     <div class="rating-line"><strong>4.9</strong><span>★★★★★</span><small>from 280+ journeys</small>
                     </div>
                 </div>
@@ -232,38 +294,51 @@
                 </div>
             </section>
             @include('partials.latest-blogs', ['blogs' => $latestBlogs])
+
+            <section class="alt">
+                <div class="wrap" style="max-width:780px">
+                    <span class="eyebrow">Good to know</span>
+                    <h2>Common <em>questions.</em></h2>
+                    @foreach ($homeFaqs as $faq)
+                        <details>
+                            <summary>{{ $faq['question'] }}</summary>
+                            <p>{{ $faq['answer'] }}</p>
+                        </details>
+                    @endforeach
+                </div>
+            </section>
+
             <section class="journal-strip" id="journal">
-    <div class="journal-bg"
-        data-bg-image="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=75">
-    </div>
-    <div class="journal-overlay"></div>
-
-    <div class="journal-copy">
-        <p class="eyebrow"><span></span> From the journal</p>
-        <h2>Leave room<br>for the <em>unexpected.</em></h2>
-        <a class="text-link" href="#journal">Read the field notes <span>↗</span></a>
-    </div>
-
-    <div class="journal-contact">
-        <h3>Plan Your Next Trip.</h3>
-        <form class="contact-form" method="POST" action="{{ route('contact.submit') ?? '#' }}">
-            @csrf
-            <div class="form-row">
-                <label for="jc-name">Name</label>
-                <input id="jc-name" name="name" type="text" placeholder="Your name" required>
-            </div>
-            <div class="form-row">
-                <label for="jc-email">Email</label>
-                <input id="jc-email" name="email" type="email" placeholder="you@email.com" required>
-            </div>
-            <div class="form-row">
-                <label for="jc-message">Message</label>
-                <textarea id="jc-message" name="message" rows="3" placeholder="Tell us where you'd like to go" required></textarea>
-            </div>
-            <button type="submit" class="form-submit">Send message <span>↗</span></button>
-        </form>
-    </div>
-</section>
+                <div class="journal-bg"
+                    data-bg-image="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=75">
+                </div>
+                <div class="journal-overlay"></div>
+                <div class="journal-copy">
+                    <p class="eyebrow"><span></span> From the journal</p>
+                    <h2>Leave room<br>for the <em>unexpected.</em></h2>
+                    <a class="text-link" href="#journal">Read the field notes <span>↗</span></a>
+                </div>
+                <div class="journal-contact">
+                    <h3>Plan Your Next Trip.</h3>
+                    <form class="contact-form" method="POST" action="{{ route('contact.submit') ?? '#' }}">
+                        @csrf
+                        <div class="form-row">
+                            <label for="jc-name">Name</label>
+                            <input id="jc-name" name="name" type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="jc-email">Email</label>
+                            <input id="jc-email" name="email" type="email" placeholder="you@email.com"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <label for="jc-message">Message</label>
+                            <textarea id="jc-message" name="message" rows="3" placeholder="Tell us where you'd like to go" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send message <span>↗</span></button>
+                    </form>
+                </div>
+            </section>
         </main>
         @include('partials.footer')
     </div>

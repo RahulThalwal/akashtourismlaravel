@@ -1,8 +1,8 @@
 <section class="latest-blogs" aria-labelledby="latest-blogs-title">
     <div class="latest-blogs-heading">
         <div>
-            <p class="eyebrow dark"><span></span> Fresh from the journal</p>
-            <h2 id="latest-blogs-title">Stories worth<br><em>the detour.</em></h2>
+            <p class="eyebrow dark"> Fresh from the journal</p>
+            <h2 id="latest-blogs-title">Stories worth <em>the detour.</em></h2>
         </div><a class="text-link" href="{{ route('blog.index') }}">View all stories <span>↗</span></a>
     </div>
     <div class="latest-blogs-grid">
