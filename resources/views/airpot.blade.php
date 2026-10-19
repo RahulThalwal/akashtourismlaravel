@@ -1,97 +1,71 @@
+@php
+    $airportFaqs = [
+        [
+            'question' => 'Do you track my flight?',
+            'answer' => 'Yes. If your flight lands early or late, your driver adjusts the pickup time automatically.',
+        ],
+        [
+            'question' => 'How early should I book?',
+            'answer' => 'We recommend at least 24 hours ahead. Last-minute requests are accepted subject to availability.',
+        ],
+        [
+            'question' => 'Are tolls and parking included?',
+            'answer' => 'We state clearly in your quote what is included, so there are no surprises on the day.',
+        ],
+        [
+            'question' => 'Can I add stops or change my booking?',
+            'answer' => "Yes. Message us on WhatsApp and we'll update your booking.",
+        ],
+        [
+            'question' => 'Can I pair this with a tour package?',
+            'answer' => 'Absolutely. Airport transfers can be added to any Akash Tourism itinerary.',
+        ],
+    ];
+@endphp
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Airport Pickup & Drop Service | Akash Tourism</title>
-<meta name="description" content="Reliable airport pickup and drop services with Akash Tourism. Flight-tracked pickups, professional drivers, clean cars and transparent pricing across India.">
-<link rel="canonical" href="https://akashjourney.com/airport-pickup-drop-service">
+@include('partials.seo', [
+    'seoTitle' => 'Airport Pickup & Drop Service in India | Akash Tourism',
+    'seoDescription' => 'Book reliable airport pickup and drop transfers with Akash Tourism. Enjoy flight-tracked pickups, professional drivers, clean cars and clear fares.',
+    'seoUrl' => route('airport-pickup-drop-service'),
+    'seoImage' => asset('images/4871_13_9_2026_13_17_6_1_DSC_2298.jpeg'),
+    'seoSchema' => [
+        '@context' => 'https://schema.org',
+        '@graph' => [
+            [
+                '@type' => 'TaxiService',
+                'name' => 'Akash Tourism Airport Pickup & Drop Service',
+                'url' => route('airport-pickup-drop-service'),
+                'description' => 'Airport pickup and drop transfers with flight tracking, professional drivers, clean cars and clear fares.',
+                'telephone' => '+91-94592-32875',
+                'areaServed' => ['Delhi', 'Jaipur', 'Srinagar', 'Chandigarh', 'India'],
+                'provider' => [
+                    '@type' => 'TravelAgency',
+                    'name' => 'Akash Tourism',
+                    'url' => rtrim(env('SEO_SITE_URL', 'https://akashjourney.com'), '/'),
+                ],
+            ],
+            [
+                '@type' => 'FAQPage',
+                'mainEntity' => array_map(fn (array $faq) => [
+                    '@type' => 'Question',
+                    'name' => $faq['question'],
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => $faq['answer'],
+                    ],
+                ], $airportFaqs),
+            ],
+        ],
+    ],
+])
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-<style>
-:root{
-  /* Swap these for the exact tokens from your site CSS */
-  --surface:#faf7f2; --card:#ffffff; --ink:#16130f; --muted:#6b6459; --line:#e7e0d4;
-  --orange:#e7623a; --orange-ink:#ffffff;
-  --font-display:'Fraunces',Georgia,serif; --font-body:'Inter',system-ui,sans-serif; --font-mono:'JetBrains Mono',monospace;
-  --radius-round:999px; --radius:18px;
-  --hero-img:url('/images/giftey-dhaliwal-5HeeJU4gzBA-unsplash.jpg');
-}
-@media (prefers-color-scheme:dark){
-  :root{--surface:#14110e;--card:#1d1914;--ink:#f5efe6;--muted:#a79f92;--line:#2e2820}
-}
-*{box-sizing:border-box;margin:0}
-body{font-family:var(--font-body);background:var(--surface);color:var(--ink);line-height:1.6}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-section{padding:80px 0}
-.eyebrow{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
-h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.1}
-h1{font-size:clamp(2.6rem,7vw,5rem);margin:14px 0 20px}
-h2{font-size:clamp(1.9rem,4vw,3rem);margin:10px 0 16px}
-h3{font-size:1.3rem;font-weight:600;margin-bottom:6px}
-em{font-style:italic;color:var(--orange)}
-.lead{color:var(--muted);font-size:1.1rem;max-width:560px}
-.btn{display:inline-block;padding:14px 26px;border-radius:var(--radius-round);font-weight:600;border:1.5px solid var(--orange);background:var(--orange);color:var(--orange-ink);cursor:pointer;font-size:1rem;font-family:inherit}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn:hover{filter:brightness(1.06)}
-.hero{padding:120px 0 130px;color:#fff;background:linear-gradient(90deg,rgba(15,11,8,.82) 0%,rgba(15,11,8,.55) 55%,rgba(15,11,8,.35) 100%),var(--hero-img) center/cover no-repeat}
-.hero .lead,.hero .stats span{color:rgba(255,255,255,.82)}
-.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.5)}
-.hero em{color:#ff8a63}
-.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.stats{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
-.stats b{font-family:var(--font-display);font-size:2.2rem;display:block}
-.stats span{color:var(--muted);font-size:.9rem}
-.grid{display:grid;gap:20px;margin-top:36px}
-.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
-.card p{color:var(--muted);font-size:.97rem}
-.num{font-family:var(--font-mono);color:var(--orange);font-size:.85rem;display:block;margin-bottom:14px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.chip{border:1px solid var(--line);border-radius:var(--radius-round);padding:8px 18px;background:var(--card);font-size:.92rem}
-.card.media{padding:0;overflow:hidden}
-.card.media img{display:block;width:100%;height:190px;object-fit:cover}
-.card.media .body{padding:24px 28px 28px}
-.card.accent{background:var(--orange);border-color:var(--orange)}
-.alt .card.accent{background:var(--orange)}
-.card.accent h3,.card.accent p,.card.accent .num{color:#fff}
-.card.accent .btn{margin-top:18px;background:#fff;color:var(--orange);border-color:#fff;padding:10px 20px}
-.fleet .card{display:flex;flex-direction:column;gap:6px}
-.fleet .seats{font-family:var(--font-display);font-size:3.2rem;line-height:1;color:var(--orange)}
-.fleet .seats small{font-size:1rem;color:var(--muted);font-family:var(--font-body);margin-left:6px}
-.fleet ul{list-style:none;padding:0;margin-top:10px;display:grid;gap:6px;color:var(--muted);font-size:.93rem}
-.fleet li::before{content:"✓ ";color:var(--orange);font-weight:600}
-.advance{background:var(--orange);color:#fff}
-.advance .eyebrow{color:rgba(255,255,255,.8)}
-.advance em{color:#fff;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
-.advance .lead{color:rgba(255,255,255,.88)}
-.advance .split{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
-.advance .perks{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.advance .perk{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:var(--radius);padding:22px}
-.advance .perk h3{font-size:1.1rem;margin-bottom:4px}
-.advance .perk p{font-size:.92rem;color:rgba(255,255,255,.88)}
-.advance .btn{background:#fff;color:var(--orange);border-color:#fff;margin-top:26px}
-@media(max-width:820px){.advance .split{grid-template-columns:1fr}.advance .perks{grid-template-columns:1fr}}
-.alt{background:var(--card);border-block:1px solid var(--line)}
-.alt .card{background:var(--surface)}
-details{border-bottom:1px solid var(--line);padding:18px 0}
-summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
-summary::after{content:"+";color:var(--orange);font-size:1.3rem}
-details[open] summary::after{content:"–"}
-details p{color:var(--muted);margin-top:10px}
-form{display:grid;gap:14px;grid-template-columns:1fr 1fr}
-form .full{grid-column:1/-1}
-label{font-size:.82rem;color:var(--muted);display:block;margin-bottom:6px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em}
-input,select,textarea{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font:inherit}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-offset:1px}
-.book{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
-footer{padding:40px 0;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-@media(max-width:820px){.book{grid-template-columns:1fr}form{grid-template-columns:1fr}section{padding:56px 0}}
-</style>
+<link rel="stylesheet" href="{{ asset('css/airport-pickup.css') }}">
 </head>
 <body>
 <div class="site-shell">
@@ -206,11 +180,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap" style="max-width:780px">
     <span class="eyebrow">Good to know</span>
     <h2>Common <em>questions.</em></h2>
-    <details><summary>Do you track my flight?</summary><p>Yes. If your flight lands early or late, your driver adjusts the pickup time automatically.</p></details>
-    <details><summary>How early should I book?</summary><p>We recommend at least 24 hours ahead. Last-minute requests are accepted subject to availability.</p></details>
-    <details><summary>Are tolls and parking included?</summary><p>We state clearly in your quote what is included, so there are no surprises on the day.</p></details>
-    <details><summary>Can I add stops or change my booking?</summary><p>Yes. Message us on WhatsApp and we'll update your booking.</p></details>
-    <details><summary>Can I pair this with a tour package?</summary><p>Absolutely. Airport transfers can be added to any Akash Tourism itinerary.</p></details>
+    @foreach ($airportFaqs as $faq)
+      <details><summary>{{ $faq['question'] }}</summary><p>{{ $faq['answer'] }}</p></details>
+    @endforeach
   </div>
 </section>
 </main>
