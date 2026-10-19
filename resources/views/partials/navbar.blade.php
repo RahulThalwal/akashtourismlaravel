@@ -4,6 +4,7 @@
                 <span>Akash Tourism</span>
             </a>
             <nav class="desktop-nav" aria-label="Primary navigation"><a href="{{ route('services') }}">Services</a><a
+                    href="{{ route('airport-pickup-drop-service') }}">Airport pickup &amp; drop</a><a
                     href="{{ route('blog.index') }}">Blog</a><a href="{{ route('about') }}">About us</a><a
                     href="{{ route('privacy') }}">Privacy</a></nav>
             <div class="header-actions">
@@ -29,5 +30,6 @@
             </div>
         </header>
         <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"><a href="#destinations">Explore</a><a
-                href="{{ route('services') }}">Services</a><a href="{{ route('blog.index') }}">Blog</a><a
+                href="{{ route('services') }}">Services</a><a href="{{ route('airport-pickup-drop-service') }}">Airport pickup &amp; drop</a><a
+                href="{{ route('blog.index') }}">Blog</a><a
                 href="{{ route('about') }}">About us</a><a href="{{ route('privacy') }}">Privacy</a></nav>
