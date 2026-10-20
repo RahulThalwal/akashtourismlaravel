@@ -12,7 +12,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 9%;
     padding: 92px 7.2% 112px;
-    background: #e9e6dc
+    background: var(--surface)
 }
 
 .contact-hero h1 {
@@ -82,7 +82,7 @@
 
 .contact-card input::placeholder,
 .contact-card textarea::placeholder {
-    color: #71807e
+    color: var(--muted-light)
 }
 
 .contact-card .primary-button {
@@ -142,7 +142,7 @@
 }
 
 .contact-success-popup-panel>p:not(.eyebrow) {
-    color: #667477;
+    color: var(--muted);
     font: 15px/1.55 var(--font-body)
 }
 

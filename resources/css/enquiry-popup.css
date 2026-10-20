@@ -43,7 +43,7 @@
 
 .enquiry-popup-intro {
     max-width: 390px;
-    color: #667477;
+    color: var(--muted);
     font: 15px/1.55 var(--font-body);
     margin-bottom: 22px
 }
@@ -55,7 +55,7 @@
 
 .enquiry-popup-form label {
     margin-top: 15px;
-    color: #7b8585;
+    color: var(--muted);
     font: 10px var(--font-mono);
     text-transform: uppercase;
     letter-spacing: .08em
@@ -76,7 +76,7 @@
 
 .enquiry-popup-form input::placeholder,
 .enquiry-popup-form textarea::placeholder {
-    color: #8c9695
+    color: var(--muted)
 }
 
 .enquiry-popup-form .primary-button {

@@ -87,7 +87,7 @@
     justify-content: space-between;
     min-height: 430px;
     padding: 82px 7.2% 78px;
-    background: #e9e6dc
+    background: var(--surface)
 }
 
 .blog-hero h1 {
@@ -97,7 +97,7 @@
 
 .blog-hero>div:first-child>p:last-child {
     max-width: 380px;
-    color: #778082;
+    color: var(--muted);
     font-size: 15px;
     line-height: 1.65
 }
@@ -136,7 +136,7 @@
 .blog-section-heading>p:last-child {
     max-width: 270px;
     margin: 0;
-    color: #778082;
+    color: var(--muted);
     font-size: 13px;
     line-height: 1.6
 }
@@ -149,7 +149,7 @@
 
 .blog-card {
     display: block;
-    background: #ebe8df;
+    background: var(--surface-raised);
     border-radius: 16px;
     overflow: hidden;
     transition: transform .25s
@@ -201,7 +201,7 @@
 .blog-meta {
     display: flex;
     justify-content: space-between;
-    color: #7e898a;
+    color: var(--muted);
     font: 9px 'DM Mono', monospace;
     text-transform: uppercase;
     letter-spacing: .05em
@@ -214,7 +214,7 @@
 }
 
 .blog-card-content>p {
-    color: #778082;
+    color: var(--muted);
     font-size: 12px;
     line-height: 1.55;
     max-width: 470px;
@@ -269,7 +269,7 @@
 .article-intro {
     max-width: 630px;
     margin: 0 auto;
-    color: #778082;
+    color: var(--muted);
     font-size: 17px;
     line-height: 1.6
 }
@@ -279,7 +279,7 @@
     justify-content: center;
     gap: 26px;
     margin-top: 28px;
-    color: #7e898a;
+    color: var(--muted);
     font: 10px 'DM Mono', monospace;
     text-transform: uppercase;
     letter-spacing: .06em
@@ -319,7 +319,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    color: #7e898a;
+    color: var(--muted);
     font: 10px 'DM Mono', monospace;
     text-transform: uppercase;
     letter-spacing: .08em
@@ -472,18 +472,18 @@
 .things-list li {
     font: 14px/1.4 'DM Mono', monospace;
     color: var(--ink);
-    background: #efece3;
+    background: var(--surface-raised);
     padding: 10px 14px;
     border-left: 2px solid var(--orange)
 }
 
 .faq-block {
     margin: 10px 0 27px;
-    border-top: 1px solid #d8d4c8
+    border-top: 1px solid var(--line)
 }
 
 .faq-item {
-    border-bottom: 1px solid #d8d4c8;
+    border-bottom: 1px solid var(--line);
     padding: 20px 0
 }
 
@@ -517,7 +517,7 @@
 
 .faq-item p {
     font: 400 16px/1.75 'DM Sans', sans-serif !important;
-    color: #778082 !important;
+    color: var(--muted) !important;
     margin: 14px 0 0 !important
 }
 
@@ -542,7 +542,7 @@
     color: var(--ink);
     margin: 60px 0 18px;
     padding-top: 26px;
-    border-top: 1px solid #d8d4c8;
+    border-top: 1px solid var(--line);
     scroll-margin-top: 90px
 }
 
@@ -563,7 +563,7 @@
 .post-callout {
     margin: 8px 0 30px;
     padding: 6px 22px;
-    background: #efece3;
+    background: var(--surface-raised);
     border-left: 3px solid var(--orange)
 }
 
@@ -575,7 +575,7 @@
 }
 
 .post-callout>div+div {
-    border-top: 1px solid #dcd8cc
+    border-top: 1px solid var(--line)
 }
 
 .post-callout dt {
@@ -595,7 +595,7 @@
 .post-table-wrap {
     margin: 0 0 32px;
     overflow-x: auto;
-    border: 1px solid #d8d4c8
+    border: 1px solid var(--line)
 }
 
 .post-table {
@@ -610,7 +610,7 @@
 .post-table thead th {
     padding: 13px 16px;
     background: var(--ink);
-    color: #f2f0e9;
+    color: var(--paper);
     text-align: left;
     font: 500 10px/1.4 'DM Mono', monospace;
     text-transform: uppercase;
@@ -623,7 +623,7 @@
     padding: 14px 16px;
     text-align: left;
     vertical-align: top;
-    border-top: 1px solid #d8d4c8
+    border-top: 1px solid var(--line)
 }
 
 .post-table tbody th {
@@ -632,7 +632,7 @@
 }
 
 .post-table tbody tr:nth-child(even) {
-    background: #efece3
+    background: var(--surface-raised)
 }
 
 /* ---------- Itinerary ---------- */
@@ -650,7 +650,7 @@
     top: 8px;
     bottom: 8px;
     width: 2px;
-    background: linear-gradient(var(--orange), #d8d4c8)
+    background: linear-gradient(var(--orange), var(--line))
 }
 
 .post-itinerary li {
@@ -692,7 +692,7 @@
 
 .post-itinerary-text {
     font: 400 15.5px/1.7 'DM Sans', sans-serif;
-    color: #5f6a6c
+    color: var(--muted)
 }
 
 /* ---------- Numbered tips ---------- */
@@ -710,11 +710,11 @@
     flex-direction: column;
     gap: 4px;
     padding: 18px 0 18px 52px;
-    border-top: 1px solid #d8d4c8
+    border-top: 1px solid var(--line)
 }
 
 .post-tips li:last-child {
-    border-bottom: 1px solid #d8d4c8
+    border-bottom: 1px solid var(--line)
 }
 
 .post-tips li:before {
@@ -734,7 +734,7 @@
 
 .post-tip-text {
     font: 400 15.5px/1.7 'DM Sans', sans-serif;
-    color: #5f6a6c
+    color: var(--muted)
 }
 
 /* ---------- Note ---------- */
@@ -786,21 +786,21 @@
 
     .post-table tbody tr {
         margin-bottom: 14px;
-        border: 1px solid #d8d4c8;
-        background: #efece3 !important
+        border: 1px solid var(--line);
+        background: var(--surface-raised) !important
     }
 
     .post-table tbody th {
         padding: 12px 14px;
         border-top: 0;
         background: var(--ink);
-        color: #f2f0e9;
+        color: var(--paper);
         white-space: normal
     }
 
     .post-table tbody td {
         padding: 10px 14px;
-        border-top: 1px solid #dcd8cc
+        border-top: 1px solid var(--line)
     }
 
     .post-table tbody td:before {

@@ -62,15 +62,12 @@
         ],
     ],
 ])
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-<link rel="stylesheet" href="{{ asset('css/airport-pickup.css') }}">
 </head>
 <body>
 <div class="site-shell">
 @include('partials.navbar')
-<main>
+<main class="airport-page">
 <section class="hero">
   <div class="wrap">
     <span class="eyebrow">Airport pickup &amp; drop</span>
