@@ -3,7 +3,7 @@
     grid-template-columns: 52% 48%;
     min-height: 610px;
     padding: 83px 7.2% 80px;
-    background: #e9e6dc
+    background: var(--surface)
 }
 
 .about-hero h1 {
@@ -125,16 +125,18 @@
 }
 
 .about-cta h2 {
+    color: #172b32;
     margin: 0
 }
 
 .about-cta h2 em {
-    color: var(--ink)
+    color: #172b32
 }
 
 .about-cta .primary-button {
     margin: 0;
-    background: var(--ink)
+    background: #172b32;
+    color: #f2f0e9
 }
 
 .about-cta .primary-button:hover {
@@ -153,7 +155,7 @@
 }
 
 .legal-updated {
-    color: #7e898a;
+    color: var(--muted);
     font: 10px 'DM Mono', monospace;
     text-transform: uppercase;
     letter-spacing: .08em

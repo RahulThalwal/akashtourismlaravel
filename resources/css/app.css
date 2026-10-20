@@ -415,7 +415,7 @@ h2 em {
 
 .explore-section {
     padding: 62px 7.2% 120px;
-    background: #e9e6dc
+    background: var(--surface)
 }
 
 .section-heading {
@@ -1295,6 +1295,30 @@ h1 {
 :root[data-theme='dark'] .blog-card,
 :root[data-theme='dark'] .things-list li {
     background: var(--surface-raised)
+}
+
+:root[data-theme='dark'] .services-hero p,
+:root[data-theme='dark'] .service-process p,
+:root[data-theme='dark'] .about-values p,
+:root[data-theme='dark'] .contact-card label,
+:root[data-theme='dark'] .contact-card input::placeholder,
+:root[data-theme='dark'] .contact-card textarea::placeholder,
+:root[data-theme='dark'] .featured-testimonial .traveller small {
+    color: #526166
+}
+
+:root[data-theme='dark'] .airport-page .advance p,
+:root[data-theme='dark'] .airport-page .card.accent p {
+    color: #fff
+}
+
+:root[data-theme='dark'] .about-cta h2 {
+    color: #172b32
+}
+
+:root[data-theme='dark'] .primary-button:hover {
+    background: #d45430;
+    color: #fff
 }
 
 :root[data-theme='dark'] .faq-block,
