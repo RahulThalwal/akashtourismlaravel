@@ -119,40 +119,50 @@ if (contactSuccessPopup) {
 	contactSuccessPopup.querySelector('.contact-success-popup-close')?.focus();
 }
 
-const enquiryPopupKey = 'akash-tourism-enquiry-popup-seen';
-if (!window.localStorage.getItem(enquiryPopupKey)) {
-	window.setTimeout(() => {
-		const popup = document.createElement('div');
-		popup.className = 'enquiry-popup';
-		popup.setAttribute('role', 'dialog');
-		popup.setAttribute('aria-modal', 'true');
-		popup.setAttribute('aria-labelledby', 'enquiry-popup-title');
-		popup.innerHTML = `<div class="enquiry-popup-panel"><button class="enquiry-popup-close" type="button" aria-label="Close enquiry form">×</button><p class="eyebrow dark"><span></span> A little planning goes a long way</p><h2 id="enquiry-popup-title">Where will you<br><em>wander?</em></h2><p class="enquiry-popup-intro">Tell us what you are dreaming about and we will help shape the first step.</p><form class="enquiry-popup-form"><label for="popup-name">Your name</label><input id="popup-name" name="name" type="text" placeholder="What should we call you?" required><label for="popup-email">Email address</label><input id="popup-email" name="email" type="email" placeholder="you@example.com" required><label for="popup-message">Your travel idea</label><textarea id="popup-message" name="message" rows="3" placeholder="A place, a feeling, a date..."></textarea><button class="primary-button" type="submit">Start a conversation <span>↗</span></button><p class="enquiry-popup-status" aria-live="polite"></p></form></div>`;
-		document.body.appendChild(popup);
-		const closePopup = () => { window.localStorage.setItem(enquiryPopupKey, '1'); popup.remove(); };
-		popup.querySelector('.enquiry-popup-close')?.addEventListener('click', closePopup);
-		popup.addEventListener('click', (event) => { if (event.target === popup) closePopup(); });
-		popup.querySelector('input')?.focus();
-		popup.querySelector('form')?.addEventListener('submit', async (event) => {
-			event.preventDefault();
-			const form = event.currentTarget;
-			const status = form.querySelector('.enquiry-popup-status');
-			const button = form.querySelector('button[type="submit"]');
-			button.disabled = true;
-			status.textContent = 'Sending your enquiry...';
-			try {
-				const response = await fetch('/contact', { method: 'POST', headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content ?? '', Accept: 'application/json' }, body: new FormData(form) });
-				if (!response.ok) throw new Error('Unable to send');
-				status.textContent = 'Thanks. Your enquiry has been sent.';
-				window.localStorage.setItem(enquiryPopupKey, '1');
-				window.setTimeout(() => popup.remove(), 1800);
-			} catch (error) {
-				button.disabled = false;
-				status.textContent = 'We could not send that just yet. Please try again.';
-			}
-		});
-	}, 1500);
-}
+document.querySelector('[data-enquiry-trigger]')?.addEventListener('click', (event) => {
+	const trigger = event.currentTarget;
+	const popup = document.createElement('div');
+	popup.className = 'enquiry-popup';
+	popup.setAttribute('role', 'dialog');
+	popup.setAttribute('aria-modal', 'true');
+	popup.setAttribute('aria-labelledby', 'enquiry-popup-title');
+	popup.innerHTML = `<div class="enquiry-popup-panel"><button class="enquiry-popup-close" type="button" aria-label="Close enquiry form">×</button><p class="eyebrow dark"><span></span> A little planning goes a long way</p><h2 id="enquiry-popup-title">Where will you<br><em>wander?</em></h2><p class="enquiry-popup-intro">Tell us what you are dreaming about and we will help shape the first step.</p><form class="enquiry-popup-form"><label for="popup-name">Your name</label><input id="popup-name" name="name" type="text" placeholder="What should we call you?" required><label for="popup-email">Email address</label><input id="popup-email" name="email" type="email" placeholder="you@example.com" required><label for="popup-message">Your travel idea</label><textarea id="popup-message" name="message" rows="3" placeholder="A place, a feeling, a date..."></textarea><button class="primary-button" type="submit">Start a conversation <span>↗</span></button><p class="enquiry-popup-status" aria-live="polite"></p></form></div>`;
+	document.body.appendChild(popup);
+	const previousBodyOverflow = document.body.style.overflow;
+	document.body.style.overflow = 'hidden';
+	const closePopup = () => {
+		document.removeEventListener('keydown', handlePopupKeydown);
+		document.body.style.overflow = previousBodyOverflow;
+		popup.remove();
+		trigger.focus();
+	};
+	const handlePopupKeydown = (keyEvent) => {
+		if (keyEvent.key === 'Escape') closePopup();
+	};
+	popup.querySelector('.enquiry-popup-close')?.addEventListener('click', closePopup);
+	popup.addEventListener('click', (clickEvent) => {
+		if (clickEvent.target === popup) closePopup();
+	});
+	document.addEventListener('keydown', handlePopupKeydown);
+	popup.querySelector('input')?.focus();
+	popup.querySelector('form')?.addEventListener('submit', async (submitEvent) => {
+		submitEvent.preventDefault();
+		const form = submitEvent.currentTarget;
+		const status = form.querySelector('.enquiry-popup-status');
+		const button = form.querySelector('button[type="submit"]');
+		button.disabled = true;
+		status.textContent = 'Sending your enquiry...';
+		try {
+			const response = await fetch('/contact', { method: 'POST', headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content ?? '', Accept: 'application/json' }, body: new FormData(form) });
+			if (!response.ok) throw new Error('Unable to send');
+			status.textContent = 'Thanks. Your enquiry has been sent.';
+			window.setTimeout(closePopup, 1800);
+		} catch (error) {
+			button.disabled = false;
+			status.textContent = 'We could not send that just yet. Please try again.';
+		}
+	});
+});
 
 document.querySelectorAll('.desktop-nav, .mobile-nav').forEach((navigation) => {
 

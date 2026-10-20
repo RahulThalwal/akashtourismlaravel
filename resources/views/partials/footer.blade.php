@@ -7,6 +7,26 @@
             </a>
             <p class="footer-tagline">Thoughtful journeys, local stories, and room to discover India at your own pace.</p>
             <a class="footer-cta" href="{{ route('contact') }}">Plan your journey <span aria-hidden="true">↗</span></a>
+            <div class="footer-platforms">
+                <strong>Travel platforms</strong>
+                <div class="footer-platform-logos">
+                    <span>
+                        <img src="{{ asset('images/travel-platforms/tripadvisor.svg') }}" alt="">
+                        Tripadvisor
+                    </span>
+                    <span>
+                        <span class="footer-platform-wordmark">GetYourGuide</span>
+                    </span>
+                    <span>
+                        <img src="{{ asset('images/travel-platforms/klook.svg') }}" alt="">
+                        Klook
+                    </span>
+                    <span>
+                        <img src="{{ asset('images/travel-platforms/airbnb.svg') }}" alt="">
+                        Airbnb
+                    </span>
+                </div>
+            </div>
         </div>
 
         <nav class="footer-links" aria-label="Explore Akash Tourism">
@@ -38,6 +58,9 @@
         <span>© {{ now()->year }} Akash Tourism India</span>
         <span>Made for the curious.</span>
     </div>
+    <button class="enquiry-tab" type="button" data-enquiry-trigger aria-haspopup="dialog">
+        <span>Enquire Now</span>
+    </button>
 </footer>
 <a class="whatsapp-float" href="https://wa.me/919459232875" target="_blank" rel="noopener noreferrer"
     aria-label="Chat with Akash Tourism on WhatsApp" title="Chat with us on WhatsApp">
