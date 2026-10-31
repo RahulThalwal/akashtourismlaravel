@@ -295,12 +295,12 @@
             </section>
             @include('partials.latest-blogs', ['blogs' => $latestBlogs])
 
-            <section class="alt">
-                <div class="wrap" style="max-width:780px">
+            <section class="home-faq" aria-labelledby="home-faq-title">
+                <div class="home-faq-inner">
                     <span class="eyebrow">Good to know</span>
-                    <h2>Common <em>questions.</em></h2>
+                    <h2 id="home-faq-title">Common <em>questions.</em></h2>
                     @foreach ($homeFaqs as $faq)
-                        <details>
+                        <details class="home-faq-item">
                             <summary>{{ $faq['question'] }}</summary>
                             <p>{{ $faq['answer'] }}</p>
                         </details>

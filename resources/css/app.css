@@ -430,6 +430,71 @@ h2 em {
     margin: 22px 0 0
 }
 
+.home-faq {
+    padding: 96px 7.2%;
+    background: var(--surface)
+}
+
+.home-faq-inner {
+    max-width: 780px;
+    margin: 0 auto
+}
+
+.home-faq h2 {
+    margin: 14px 0 34px;
+    font-size: clamp(43px, 5.5vw, 64px)
+}
+
+.home-faq-item {
+    border-top: 1px solid var(--line)
+}
+
+.home-faq-item:last-child {
+    border-bottom: 1px solid var(--line)
+}
+
+.home-faq-item summary {
+    position: relative;
+    padding: 20px 40px 20px 0;
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    list-style: none;
+    cursor: pointer
+}
+
+.home-faq-item summary::-webkit-details-marker {
+    display: none
+}
+
+.home-faq-item summary::after {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    color: var(--orange);
+    content: '+';
+    font: 24px 'DM Mono', monospace;
+    transform: translateY(-50%)
+}
+
+.home-faq-item[open] summary::after {
+    content: '−'
+}
+
+.home-faq-item p {
+    max-width: 680px;
+    margin: -2px 40px 22px 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75
+}
+
+.home-faq-item summary:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 4px
+}
+
 .section-note {
     width: 220px;
     color: #778082;
@@ -906,6 +971,23 @@ h2 em {
 }
 
 @media (max-width:600px) {
+    .home-faq {
+        padding: 64px 5%
+    }
+
+    .home-faq h2 {
+        margin-bottom: 26px
+    }
+
+    .home-faq-item summary {
+        padding: 17px 36px 17px 0;
+        font-size: 15px
+    }
+
+    .home-faq-item p {
+        margin-right: 20px
+    }
+
     .journal-strip {
         margin: 0 5% 32px;
         border-radius: 16px
